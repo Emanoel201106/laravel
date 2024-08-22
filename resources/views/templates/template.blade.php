@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{url('assets/bootstrap/css/bootstrap.min.css')}}">
     </head>
 <body>
+    <div>
     @yield('content')
-
+    </div>
 </body>
 </html>
