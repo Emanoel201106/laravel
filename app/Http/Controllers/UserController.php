@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $users = $this->objUser->all();
         return view('create', compact('users'));
-        return redirect('');
+        return redirect('/book');
     }
 
     /**
@@ -48,7 +48,7 @@ class UserController extends Controller
             'id_user'=>$request->id_user
         ]);
         if($cad){
-            return redirect('');
+            return redirect('/book');
         }
     }
 
@@ -82,7 +82,7 @@ class UserController extends Controller
             'emprego'=>$request->emprego,
             'id_user'=>$request->id_user
         ]);
-        return redirect('');
+        return redirect('/book');
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $book=$this->objBook->findOrFail($id)->delete();
-        return redirect('');
+        return redirect('/book');
     }
 }

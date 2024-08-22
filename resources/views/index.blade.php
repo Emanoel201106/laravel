@@ -4,6 +4,10 @@
     <h1 class="text-center">Crud de Usuário</h1>
     <hr>
     <div class="text-center mt-3 mb-4">
+        <a href="{{ url('/') }}">
+            <button class="btn btn-dark">Home</button>
+        </a>
+    <div class="text-center mt-3 mb-4">
         <a href="{{ url('books/create') }}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
@@ -43,6 +47,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="text-center mt-3 mb-4">
+        <a href="{{ url('/dashboard') }}">
+            <button class="btn btn-danger">Sair</button>
+        </a>
+    </div>
     </div>
 
     <script>
