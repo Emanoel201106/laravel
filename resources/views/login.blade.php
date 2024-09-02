@@ -12,7 +12,7 @@
             </div>
         </nav><br><br><br>
 <div class="box">
-<h2 class="text-center">Login</h2>
+<h2 class="text-center">Login</h2><hr>
 
 @if(session()->has('success'))
     {{session()->get('sucess')}}
@@ -47,7 +47,7 @@
  <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                     <a id="logo" class="btn btn-dark btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
                         <a id="logo" class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>

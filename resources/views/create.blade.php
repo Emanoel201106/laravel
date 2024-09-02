@@ -12,8 +12,8 @@
                 </div>
             </div>
         </nav><br><br><br>
+    <div class="box-2">
     <h1 class="titulo">@if(isset($book)) Editar @else Cadastrar @endif</h1> <hr>
-
     <div class="col-8 m-auto">
         @if(isset($book))
             <form id="formEdit" method="post" action="{{ url("books/$book->id") }}">
@@ -36,10 +36,11 @@
             </div>
         </form>
     </div>
+    </div>
     <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                     <a id="logo" class="btn btn-dark btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
                         <a id="logo" class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>

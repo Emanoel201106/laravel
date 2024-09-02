@@ -7,6 +7,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class=""><a class="menu-link" id="home" href="/">Início</a></li>
+                        <li class=""><a class="menu-link" id="cadastrar" href="{{url('books/create')}}">Cadastrar</a></li>
                         <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
                     </ul>
                 </div>
@@ -14,11 +15,6 @@
         </nav><br><br><br>
     <h1 class="titulo">Crud de Usuário</h1>
     <hr>
-    <div class="text-center mt-3 mb-4">
-        <a href="{{ url('books/create') }}">
-            <button class="btn btn-success">Cadastrar</button>
-        </a>
-    </div>
     <div class="col-8 m-auto">
         @csrf
         <table class="table">
@@ -58,7 +54,7 @@
     <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a id="logo" class="btn btn-dark btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
                         <a id="logo" class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>
