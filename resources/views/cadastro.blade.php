@@ -23,12 +23,19 @@
     @enderror
 <form class="text-center" action="{{route('cadastro.create')}}" method="post">
     @csrf
-    <h5>Nome</h3>
+    <h5 class="cad-title">Nome</h3>
     <input class="email_senha" type="text" name="name" placeholder="Nome" required><br><br>
-    <h5>Email</h3>
+    <h5 class="cad-title">Email</h3>
     <input class="email_senha" type="email" name="email" placeholder="Email" required><br><br>
-    <h5>Senha</h3>
-    <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br>
+    <h5 class="cad-title">Senha</h3>
+    <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br><br>
+    <h5 class="text-center">Será administrador</h3>
+    <label class="checkbox" for="customCheck">
+    <input type="checkbox" value="1" name="admin">
+    Sim</label>
+    <label class="custom-control-label" for="customCheck">
+    <input type="checkbox" value="1" name="user">
+    Não</label> <br>
     <button id="botao" class="btn btn-primary" type="submit">Criar</button>
 </form>
 <footer class="footer py-4">

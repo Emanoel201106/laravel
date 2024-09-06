@@ -136,7 +136,10 @@ a:hover.user-name{
     text-align: center;
     margin-top: 260px;
 }
-h5{
+.cad-title{
     text-align: left;
     margin-left: 200px;
+}
+.checkbox{
+    margin-right: 20px;
 }
