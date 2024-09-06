@@ -23,7 +23,7 @@
         @endif
             @csrf
             <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome" value="{{ $book->nome ?? '' }}" required> <br>
-            <select class="form-control" name="id_user" id="id_user" required>
+            <select class="form-control" name="id_user" id="id_user">
                 <option value="{{ $book->relUsers->id ?? '' }}">{{ $book->relUsers->id ?? 'Id' }}</option>
                 @foreach($users as $user)
                     <option value="{{ $user->id }}">{{ $user->id }}</option>

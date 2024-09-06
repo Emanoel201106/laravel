@@ -29,7 +29,7 @@ class LoginController extends Controller
         $user = User::where('email', $credentials['email'])->first();
 
         //$user->password = Hash::make($credentials['password']);
-        //    $user->save();
+            //$user->save();
 
         if($user && Hash::check($credentials['password'], $user->password)){
             Auth::login($user);

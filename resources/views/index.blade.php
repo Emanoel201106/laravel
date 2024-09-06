@@ -8,6 +8,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class=""><a class="menu-link" id="home" href="/">Início</a></li>
                         <li class=""><a class="menu-link" id="cadastrar" href="{{url('books/create')}}">Cadastrar</a></li>
+                        <li class=""><a class="menu-link" id="login" href="{{url('cadastro')}}">Criar usuário</a></li>
                         <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
                     </ul>
                 </div>

@@ -7,7 +7,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="menu-link" id="login" href="{{route('login.store')}}">Entrar</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="menu-link" id="login" href="{{url('/user-adm')}}">Entrar</a></li>
                     </ul>
                 </div>
             </div>

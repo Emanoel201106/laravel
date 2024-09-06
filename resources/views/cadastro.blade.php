@@ -3,17 +3,17 @@
 @section('content')
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
             <div class="container">
-                <a class="crud" href="">CRUD de Usuário</a>
-                <div>
-                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="menu-link" id="home" href="/">Início</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="menu-link" id="login" href="{{url('/user-adm')}}">Alterar usuário</a></li>
+                <a class="crud" href="{{route('index')}}">CRUD de Usuário</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class=""><a class="menu-link" id="home" href="/">Início</a></li>
+                        <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
                     </ul>
                 </div>
             </div>
         </nav><br><br><br>
-<div class="box">
-<h2 class="text-center">Login</h2><hr>
+<div class="box-3">
+<h2 class="text-center">Criar novo usuário</h2><hr>
 
 @if(session()->has('success'))
     {{session()->get('sucess')}}
@@ -21,31 +21,17 @@
 @error('error')
     <span>{{$message}}</span>
     @enderror
-<form class="text-center" action="{{route('login.store')}}" method="post">
+<form class="text-center" action="{{route('cadastro.create')}}" method="post">
     @csrf
-    <input class="email_senha" type="text" name="email" placeholder="Email">
-    @error('email')
-    <span>{{$message}}</span>
-    @enderror <br><br>
-    <input class="email_senha" type="password" name="password" placeholder="Senha"> <br>
-    @error('password')
-    <span>{{$message}}</span>
-    @enderror
-    <input type="checkbox" class="custom-control-input" id="customCheck">
-    <label class="custom-control-label" for="customCheck">Lembrar de mim</label> <br>
-    <button id="botao" class="btn btn-primary" type="submit">Entrar</button>
-</form><hr>
-<div class="text-center">
-    <a class="small" href="">Esqueceu a senha?</a>
-</div>
-<div class="text-center">
-    <a class="small" href="">Criar uma conta!</a>
-</div>
-</div>
-<div class="text-center mt-3 mb-4">
-
-</div>
- <footer class="footer py-4">
+    <h5>Nome</h3>
+    <input class="email_senha" type="text" name="name" placeholder="Nome" required><br><br>
+    <h5>Email</h3>
+    <input class="email_senha" type="email" name="email" placeholder="Email" required><br><br>
+    <h5>Senha</h3>
+    <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br>
+    <button id="botao" class="btn btn-primary" type="submit">Criar</button>
+</form>
+<footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
@@ -62,3 +48,4 @@
             </div>
         </footer>
 @endsection
+''
