@@ -29,7 +29,7 @@
     <input class="email_senha" type="email" name="email" placeholder="Email" required><br><br>
     <h5 class="cad-title">Senha</h3>
     <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br><br>
-    <h5 class="text-center">Será administrador</h3>
+    <h5 class="text-center">Será administrador?</h3>
     <label class="checkbox" for="customCheck">
     <input type="checkbox" value="1" name="admin">
     Sim</label>
