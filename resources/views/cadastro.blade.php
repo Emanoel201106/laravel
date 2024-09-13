@@ -27,18 +27,21 @@
     <input class="email_senha" type="text" name="name" placeholder="Nome" required><br><br>
     <h5 class="cad-title">Email</h3>
     <input class="email_senha" type="email" name="email" placeholder="Email" required><br><br>
+    <h5 class="cad-title">Idade</h3>
+    <input class="email_senha" type="text" name="idade" placeholder="Idade" required><br><br>
+    <h5 class="cad-title">Emprego</h3>
+    <input class="email_senha" type="text" name="emprego" placeholder="Emprego" required><br><br>
     <h5 class="cad-title">Senha</h3>
     <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br><br>
-    <h5 class="text-center">Será administrador?</h3>
     <label class="checkbox" for="customCheck">
     <input type="checkbox" value="1" name="admin">
-    Sim</label>
+    Administrador</label>
     <label class="custom-control-label" for="customCheck">
     <input type="checkbox" value="1" name="user">
-    Não</label> <br>
+    Usuário</label> <br>
     <button id="botao" class="btn btn-primary" type="submit">Criar</button>
 </form>
-<footer class="footer py-4">
+<footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
@@ -55,4 +58,4 @@
             </div>
         </footer>
 @endsection
-''
+

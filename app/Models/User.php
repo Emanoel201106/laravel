@@ -23,6 +23,8 @@ class User extends Authenticatable
         'admin',
         'user',
         'password',
+        'idade',
+        'emprego'
     ];
 
     /**
@@ -47,6 +49,6 @@ class User extends Authenticatable
 
     public function relBooks()
     {
-        return $this->hasMany('App\Models\Models\ModelUsers', foreignKey: 'id_user');
+        //
     }
 }

@@ -18,14 +18,18 @@ class UsersSeeder extends Seeder
             'email' => 'lais@gmail.com',
             'password' => bcrypt('123'),
             'admin' => '1',
-            'user' => '0'
+            'user' => '0',
+            'idade' => '21',
+            'emprego' => 'Designer'
         ]);
         User::create([
             'name' => 'Pedro',
             'email' => 'pedro@gmail.com',
             'password' => bcrypt('123'),
             'admin' => '0',
-            'user' => '1'
+            'user' => '1',
+            'idade' => '26',
+            'emprego' => 'Programador'
         ]);
     }
 }

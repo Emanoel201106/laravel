@@ -13,31 +13,33 @@
             </div>
         </nav><br><br><br>
     <div class="box-2">
-    <h1 class="titulo">@if(isset($book)) Editar @else Cadastrar @endif</h1> <hr>
+    <h1 class="titulo">@if(isset($user)) Editar @endif</h1> <hr>
     <div class="col-8 m-auto">
-        @if(isset($book))
-            <form id="formEdit" method="post" action="{{ url("books/$book->id") }}">
+        @if(isset($user))
+            <form id="formEdit" method="post" action="{{ url("books/{$user->id}") }}">
                 @method('PUT')
         @else
             <form id="formCad" method="post" action="{{ url('books') }}">
         @endif
             @csrf
-            <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome" value="{{ $book->nome ?? '' }}" required> <br>
-            <select class="form-control" name="id_user" id="id_user">
-                <option value="{{ $book->relUsers->id ?? '' }}">{{ $book->relUsers->id ?? 'Id' }}</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->id }}</option>
-                @endforeach
-            </select> <br>
-            <input class="form-control" type="text" name="idade" id="idade" placeholder="Idade" value="{{ $book->idade ?? '' }}" required> <br>
-            <input class="form-control" type="text" name="emprego" id="emprego" placeholder="Emprego" value="{{ $book->emprego ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Nome" value="{{ $user->name ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="email" id="email" placeholder="Email" value="{{ $user->email ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="idade" id="idade" placeholder="Idade" value="{{ $user->idade ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="emprego" id="emprego" placeholder="Emprego" value="{{ $user->emprego ?? '' }}" required> <br>
+
+            <input type="checkbox" name="admin" id="admin" {{ isset($user) && $user->admin ? 'checked' : '' }}>
+            <label class="checkbox-2" for="admin">Administrador</label>
+            <input type="checkbox" name="user" id="user" {{ isset($user) && $user->user ? 'checked' : '' }}>
+            <label for="user">Usuário</label><br><br>
+
+
             <div class="text-center">
-            <input class="btn btn-primary" type="submit" value="@if(isset($book)) Editar @else Cadastrar @endif">
+            <input class="btn btn-primary" type="submit" value="@if(isset($user)) Editar @endif">
             </div>
         </form>
     </div>
     </div>
-    <footer class="footer py-4">
+    <footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>

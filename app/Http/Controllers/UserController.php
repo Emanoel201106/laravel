@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
-use App\Models\Models\ModelUsers;
 use App\Models\User;
 
 class UserController extends Controller
 {
     private $objUser;
-    private $objBook;
 
-    public function __construct()
+    public function __construct(User $user)
     {
-        $this->objUser=new User();
-        $this->objBook=new ModelUsers();
+        $this->objUser = $user;
     }
 
     /**
@@ -22,8 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $book=$this->objBook->all();
-        return view('index',compact('book'));
+        $users=$this->objUser->all();
+        return view('index',['users' => $users]);
     }
 
     /**
@@ -41,11 +38,14 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $cad=$this->objBook->create([
-            'nome'=>$request->nome,
-            'idade'=>$request->idade,
-            'emprego'=>$request->emprego,
-            'id_user'=>$request->id_user
+        $cad=$this->objUser->create([
+            $user->name = $request->name,
+            $user->email = $request->email,
+            $user->idade = $request->idade,
+            $user->emprego = $request->emprego,
+            $user->password = bcrypt($request->password),
+            $user->admin = $request->admin,
+            $user->user = $request->user,
         ]);
         if($cad){
             return redirect('/book');
@@ -57,8 +57,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $book=$this->objBook->find($id);
-        return view('show', compact('book'));
+        $user=$this->objUser->find($id);
+        return view('show', compact('user'));
     }
 
     /**
@@ -66,9 +66,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $book=$this->objBook->find($id);
-        $users=$this->objUser->all();
-        return view('create',compact('book','users'));
+        $user = $this->objUser->findOrFail($id);
+        return view('create', compact('user'));
     }
 
     /**
@@ -76,11 +75,14 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, string $id)
     {
-        $this->objBook->where(['id'=>$id])->update([
-            'nome'=>$request->nome,
-            'idade'=>$request->idade,
-            'emprego'=>$request->emprego,
-            'id_user'=>$request->id_user
+        $user = $this->objUser->findOrFail($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'admin' => $request->admin,
+            'user' => $request->user,
+            'idade' => $request->idade,
+            'emprego' => $request->emprego,
         ]);
         return redirect('/book');
     }
@@ -90,7 +92,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $book=$this->objBook->findOrFail($id)->delete();
+        $user=$this->objUser->findOrFail($id)->delete();
         return redirect('/book');
     }
 }

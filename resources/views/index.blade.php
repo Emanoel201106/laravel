@@ -7,8 +7,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class=""><a class="menu-link" id="home" href="/">Início</a></li>
-                        <li class=""><a class="menu-link" id="cadastrar" href="{{url('books/create')}}">Cadastrar</a></li>
-                        <li class=""><a class="menu-link" id="login" href="{{url('cadastro')}}">Criar usuário</a></li>
+                        <li class=""><a class="menu-link" id="cadastrar" href="{{url('cadastro')}}">Criar usuário</a></li>
                         <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
                     </ul>
                 </div>
@@ -23,28 +22,36 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Idade</th>
                     <th scope="col">Emprego</th>
-                    <th scope="col">Ação</th>
+                    <th scope="col">Administrador</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($book as $books)
+                @foreach($users as $user)
                 <tr>
-                    <th scope="row">{{ $books->id }}</th>
-                    <td>{{ $books->nome }}</td>
-                    <td>{{ $books->idade }}</td>
-                    <td>{{ $books->emprego }}</td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->idade }}</td>
+                    <td>{{ $user->emprego }}</td>
+                    <td>{{ $user->admin }}</td>
+                    <td>{{ $user->user }}</td>
                     <td>
-                        <a href="{{ url("books/{$books->id}/edit") }}">
+
+                        <a href="{{ url("books/{$user->id}/edit") }}">
                             <button class="btn btn-primary">Editar</button>
                         </a>
-                        <a href="#" class="js-del" data-id="{{ $books->id }}">
+                        <a href="#" class="js-del" data-id="{{ $user->id }}">
                             <button class="btn btn-danger">Deletar</button>
                         </a>
-                        <form id="delete-form-{{ $books->id }}" action="{{ route('books.destroy', ['user' => $books->id]) }}" method="POST" style="display:none;">
+                        <form id="delete-form-{{ $user->id }}" action="{{ route('books.destroy', ['user' => $user->id]) }}" method="POST" style="display:none;">
                             @csrf
                             @method('DELETE')
+
                         </form>
                     </td>
                 </tr>

@@ -27,6 +27,8 @@ class CadastroController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->idade = $request->idade;
+        $user->emprego = $request->emprego;
         $user->password = bcrypt($request->password);
         $user->admin = $request->admin;
         $user->user = $request->user;

@@ -13,7 +13,7 @@
             </div>
         </nav><br><br><br>
         <h1 class="title">Bem-vindo à página inicial!</h1>
-        <footer class="footer py-4">
+        <footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
