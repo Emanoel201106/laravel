@@ -1,5 +1,6 @@
 @extends('templates.template')
 
+@section('title', "Novo Usuário")
 @section('content')
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
             <div class="container">

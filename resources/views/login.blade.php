@@ -1,5 +1,6 @@
 @extends('templates.template')
 
+@section('title', "Login")
 @section('content')
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
             <div class="container">
@@ -36,16 +37,16 @@
     <button id="botao" class="btn btn-primary" type="submit">Entrar</button>
 </form><hr>
 <div class="text-center">
-    <a class="small" href="">Esqueceu a senha?</a>
+    <a href="">Esqueceu a senha?</a>
 </div>
 <div class="text-center">
-    <a class="small" href="">Criar uma conta!</a>
+    <a href="">Criar uma conta!</a>
 </div>
 </div>
 <div class="text-center mt-3 mb-4">
 
 </div>
- <footer class="footer py-4">
+ <footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>

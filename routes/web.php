@@ -7,13 +7,15 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\LivroController;
+use App\Http\Controllers\CarrinhoController;
 
 
-Route::get('/', [UsuarioController::class,'index'])->name('usuario');
-Route::get('/usuario', [UsuarioController::class,'index'])->name('usuario.index');
 
 Route::get('/', [AdmController::class,'index'])->name('user-adm');
 Route::get('/user-adm', [AdmController::class,'index'])->name('adm.index');
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(LoginController::class)->group(function(){
@@ -29,11 +31,14 @@ Route::post('/cadastro', [CadastroController::class, 'create'])->name('cadastro.
 
 Route::get('/', [HomeController::class,'index'])->name('index');
 Route::get('/book', [UserController::class,'index'])->name('index')->middleware('admin');
-Route::get('/books', [UserController::class, 'create'])->name('books.index');
 Route::get('/books/create', [UserController::class, 'create'])->name('books.create');
 Route::post('/books', [UserController::class, 'store'])->name('books.store');
-Route::post('/books/{user}', [UserController::class, 'show'])->name('books.show');
+Route::get('/books/{user}', [UserController::class, 'show'])->name('books.show');
 Route::get('/books/{user}/edit', [UserController::class, 'edit'])->name('books.edit');
 Route::put('/books/{user}', [UserController::class, 'update'])->name('books.update');
 Route::delete('/books/{user}', [UserController::class, 'destroy'])->name('books.destroy');
 
+Route::get('/usuario', [UsuarioController::class,'index'])->name('usuario');
+
+Route::get('/', [LivroController::class,'index'])->name('livro');
+Route::get('/livro', [LivroController::class,'index'])->name('livro.index');

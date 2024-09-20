@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 .email_senha {
     border-radius: 40px;
     padding: 6px 10px;
   }
-.small{
+a{
     text-decoration: none;
-}
+  }
 .box{
 	margin: 0 auto;
 	width: 650px;
@@ -34,7 +36,6 @@
 body{
     background-image: url(../img/fundo.jpg);
     background-size: 100%;
-    background-repeat: no-repeat;
 }
 a{
     color: #5f9bf7;
@@ -47,10 +48,7 @@ a{
     font-size: 20px;
     margin-top: 100px;
 }
-.titulo{
-    text-align: center;
-}
-.titulo_2{
+.titulo, .titulo_2{
     text-align: center;
 }
 #botao{
@@ -58,14 +56,12 @@ a{
 }
 .link{
     text-align: center;
-    text-decoration: none;
     padding: 10px;
     color: white;
     font-size: 25px ;
 }
 .crud{
     color: white;
-    text-decoration: none;
     font-size: 25px;
 }
 a:hover.crud{
@@ -73,7 +69,6 @@ a:hover.crud{
 }
 .menu-link{
     color: white;
-    text-decoration: none;
     margin-left: 10px;
 }
 a:hover#sair{
@@ -96,6 +91,9 @@ a:hover#cadastrar{
     background: gray;
     text-align: center;
     padding: 10px;
+}
+#f-book{
+    position: relative;
 }
 .logo{
     height: 20px;
@@ -144,4 +142,178 @@ a:hover.user-name{
 }
 .checkbox-2{
     margin-right: 150px;
+}
+.livraria-titles{
+    margin-left: 20px;
+    font-family: "Alegreya SC", serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#promo{
+    margin-top: 20px;
+}
+.categoria{
+    background-color: #C4A374;
+    border-radius: 50px;
+}
+img:hover.categoria{
+    background-color: #F1C583;
+}
+.categoria-p{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 60px;
+}
+.categoria-p1{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 65px;
+}
+.categoria-p2{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 55px;
+}
+.categoria-p3{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 59px;
+}
+.categoria-p4{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 95px;
+}
+.categoria-p5{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 110px;
+}
+.categoria-p6{
+    display: inline;
+    font-size: 30px;
+    font-family: "Alegreya SC", serif;
+    margin-left: 69px;
+}
+#romance,#terror,#fantasia,#aventura,#infantil,#hq,#drama,#nacional{
+    margin-left: 70px;
+}
+#romance{
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+#terror{
+    padding: 10px 2px 10px 2px;
+}
+#fantasia{
+    padding: 5px 13px 5px 13px;
+}
+#aventura{
+    padding: 1px 9px 1px 9px;
+}
+#infantil{
+    padding: 5px 3px 5px 3px;
+}
+#hq{
+    width: 105px;
+    height: 105px;
+    padding: 10px;
+}
+#drama{
+    width: 105px;
+    height: 105px;
+    padding: 10px;
+}
+#nacional{
+    width: 105px;
+    height: 105px;
+    padding: 10px;
+}
+.box-livros{
+    display: inline-block;
+    border-radius: 30px;
+    background-color: white;
+    margin-left: 70px;
+    margin-bottom: 30px;
+    padding: 18px;
+    padding-bottom: 0px;
+    width: 358px;
+    height: 500px;
+}
+div:hover.box-livros{
+    background-color: #b8bcb7;
+}
+#box-livro{
+    margin-left: 150px;
+}
+#box-livro1{
+    margin-left: 130px;
+}
+.livro{
+    margin-left: 62px;
+}
+.livro-p{
+    font-family: "Alegreya SC", serif;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 22px;
+    color: black;
+}
+.livro-p1{
+    font-family: "Alegreya SC", serif;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: black;
+}
+.avaliacoes{
+    display: inline-block;
+    color: #BACE9A;
+}
+.preço{
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    font-family: "Alata", sans-serif;
+}
+.preço-p{
+    color: #7B604F;
+    text-decoration: line-through;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Alata", sans-serif;
+
+}
+.stars{
+    margin-left: 30px;
+}
+.div-book{
+    display: flex;
+}
+.p-book{
+    font-weight: 100;
+    font-size: 15px;
+}
+.carrinho{
+    text-align: center;
+    background-color: #BACE9A;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+.a-car{
+    color: black;
+}
+.box-compra{
+    background-color: white;
+    border-radius: 50px;
+}
+.quantidade{
+    text-align: center;
 }

@@ -44,8 +44,8 @@ class UserController extends Controller
             $user->idade = $request->idade,
             $user->emprego = $request->emprego,
             $user->password = bcrypt($request->password),
-            $user->admin = $request->admin,
-            $user->user = $request->user,
+            'admin' => $request->has('admin'),
+            'user' => $request->has('user'),
         ]);
         if($cad){
             return redirect('/book');
@@ -79,12 +79,12 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'admin' => $request->admin,
-            'user' => $request->user,
+            'admin' => $request->has('admin'),
+            'user' => $request->has('user'),
             'idade' => $request->idade,
             'emprego' => $request->emprego,
         ]);
-        return redirect('/book');
+        return redirect()->route('books.index');
     }
 
     /**

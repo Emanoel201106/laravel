@@ -1,5 +1,6 @@
 @extends('templates.template')
 
+@section('title', "Crud de Usuário")
 @section('content')
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
             <div class="container">
@@ -59,7 +60,7 @@
             </tbody>
         </table>
     </div>
-    <footer class="footer py-4">
+    <footer class="footer">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
