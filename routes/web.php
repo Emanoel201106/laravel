@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdmController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CadastroController;
-use App\Http\Controllers\LivroController;
 use App\Http\Controllers\CarrinhoController;
 
 
@@ -33,12 +32,14 @@ Route::get('/', [HomeController::class,'index'])->name('index');
 Route::get('/book', [UserController::class,'index'])->name('index')->middleware('admin');
 Route::get('/books/create', [UserController::class, 'create'])->name('books.create');
 Route::post('/books', [UserController::class, 'store'])->name('books.store');
-Route::get('/books/{user}', [UserController::class, 'show'])->name('books.show');
 Route::get('/books/{user}/edit', [UserController::class, 'edit'])->name('books.edit');
 Route::put('/books/{user}', [UserController::class, 'update'])->name('books.update');
 Route::delete('/books/{user}', [UserController::class, 'destroy'])->name('books.destroy');
 
 Route::get('/usuario', [UsuarioController::class,'index'])->name('usuario');
+Route::get('/carrinho', [UsuarioController::class,'carrinho'])->name('carrinho');
+Route::get('/adicionar-ao-carrinho/{id}', [UsuarioController::class,'adicionar'])->name('adicionar-ao-carrinho');
+Route::patch('/atualizar-carrinho', [UsuarioController::class,'atualizar'])->name('atualizar_carrinho');
+Route::delete('/remover-do-carrinho', [UsuarioController::class,'remover'])->name('remover_do_carrinho');
 
-Route::get('/', [LivroController::class,'index'])->name('livro');
-Route::get('/livro', [LivroController::class,'index'])->name('livro.index');
+
