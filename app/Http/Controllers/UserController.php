@@ -41,8 +41,8 @@ class UserController extends Controller
         $cad=$this->objUser->create([
             $user->name = $request->name,
             $user->email = $request->email,
-            $user->idade = $request->idade,
-            $user->emprego = $request->emprego,
+            $user->livro = $request->livro,
+            $user->genero = $request->genero,
             $user->password = bcrypt($request->password),
             'admin' => $request->has('admin'),
             'user' => $request->has('user'),
@@ -81,10 +81,10 @@ class UserController extends Controller
             'email' => $request->email,
             'admin' => $request->has('admin'),
             'user' => $request->has('user'),
-            'idade' => $request->idade,
-            'emprego' => $request->emprego,
+            'livro' => $request->livro,
+            'genero' => $requestgenerogo,
         ]);
-        return redirect()->route('books.index');
+        return redirect('/book');
     }
 
     /**

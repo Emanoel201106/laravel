@@ -19,8 +19,8 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('123'),
             'admin' => '1',
             'user' => '0',
-            'idade' => '21',
-            'emprego' => 'Designer'
+            'livro' => 'Harry Potter',
+            'genero' => 'Fantasia'
         ]);
         User::create([
             'name' => 'Pedro',
@@ -28,8 +28,8 @@ class UsersSeeder extends Seeder
             'password' => bcrypt('123'),
             'admin' => '0',
             'user' => '1',
-            'idade' => '26',
-            'emprego' => 'Programador'
+            'livro' => 'It: a Coisa',
+            'genero' => 'Terror'
         ]);
     }
 }

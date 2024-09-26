@@ -26,14 +26,14 @@
     @csrf
     <input class="email_senha" type="text" name="email" placeholder="Email">
     @error('email')
-    <span>{{$message}}</span>
+    <br><span>{{$message}}</span>
     @enderror <br><br>
     <input class="email_senha" type="password" name="password" placeholder="Senha"> <br>
     @error('password')
-    <span>{{$message}}</span>
+    <span>{{$message}}</span><br>
     @enderror
     <input type="checkbox" class="custom-control-input" id="customCheck">
-    <label class="custom-control-label" for="customCheck">Lembrar de mim</label> <br>
+    <label class="checkbox" for="customCheck"><input type="checkbox"> Lembrar de mim</label> <br>
     <button id="botao" class="btn btn-primary" type="submit">Entrar</button>
 </form><hr>
 <div class="text-center">

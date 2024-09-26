@@ -17,16 +17,16 @@
     <h1 class="titulo">@if(isset($user)) Editar @endif</h1> <hr>
     <div class="col-8 m-auto">
         @if(isset($user))
-            <form id="formEdit" method="post" action="{{ url("books/{$user->id}") }}">
+            <form id="formEdit" method="post" action="{{ url("crud/{$user->id}") }}">
                 @method('PUT')
         @else
-            <form id="formCad" method="post" action="{{ url('books') }}">
+            <form id="formCad" method="post" action="{{ url('crud') }}">
         @endif
             @csrf
             <input class="form-control" type="text" name="name" id="name" placeholder="Nome" value="{{ $user->name ?? '' }}" required> <br>
             <input class="form-control" type="text" name="email" id="email" placeholder="Email" value="{{ $user->email ?? '' }}" required> <br>
-            <input class="form-control" type="text" name="idade" id="idade" placeholder="Idade" value="{{ $user->idade ?? '' }}" required> <br>
-            <input class="form-control" type="text" name="emprego" id="emprego" placeholder="Emprego" value="{{ $user->emprego ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="livro" id="livro" placeholder="Livro" value="{{ $user->livro ?? '' }}" required> <br>
+            <input class="form-control" type="text" name="genero" id="genero" placeholder="Gênero" value="{{ $user->genero ?? '' }}" required> <br>
 
             <input type="checkbox" name="admin" id="admin" {{ isset($user) && $user->admin ? 'checked' : '' }}>
             <label class="checkbox-2" for="admin">Administrador</label>

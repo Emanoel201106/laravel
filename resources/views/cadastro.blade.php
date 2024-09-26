@@ -7,7 +7,6 @@
                 <a class="crud" href="{{route('index')}}">CRUD de Usuário</a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
-                        <li class=""><a class="menu-link" id="home" href="/">Início</a></li>
                         <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
                     </ul>
                 </div>
@@ -22,22 +21,22 @@
 @error('error')
     <span>{{$message}}</span>
     @enderror
-<form class="text-center" action="{{route('cadastro.create')}}" method="post">
+<form class="cadastro" action="{{route('cadastro.create')}}" method="post">
     @csrf
     <h5 class="cad-title">Nome</h3>
     <input class="email_senha" type="text" name="name" placeholder="Nome" required><br><br>
     <h5 class="cad-title">Email</h3>
     <input class="email_senha" type="email" name="email" placeholder="Email" required><br><br>
-    <h5 class="cad-title">Idade</h3>
-    <input class="email_senha" type="text" name="idade" placeholder="Idade" required><br><br>
-    <h5 class="cad-title">Emprego</h3>
-    <input class="email_senha" type="text" name="emprego" placeholder="Emprego" required><br><br>
+    <h5 class="cad-title">Livro</h3>
+    <input class="email_senha" type="text" name="livro" placeholder="Livro" required><br><br>
+    <h5 class="cad-title">Gênero</h3>
+    <input class="email_senha" type="text" name="genero" placeholder="Gênero" required><br><br>
     <h5 class="cad-title">Senha</h3>
     <input class="email_senha" type="password" name="password" placeholder="Senha" required> <br><br>
     <label class="checkbox" for="customCheck">
     <input type="checkbox" value="1" name="admin">
     Administrador</label>
-    <label class="custom-control-label" for="customCheck">
+    <label class="checkbox" for="customCheck">
     <input type="checkbox" value="1" name="user">
     Usuário</label> <br>
     <button id="botao" class="btn btn-primary" type="submit">Criar</button>

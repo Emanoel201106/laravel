@@ -346,4 +346,6 @@ a:hover.add{
 a:hover#carrinho{
     color: #BACE9A;
 }
-
+.cadastro{
+    text-align: center;
+}

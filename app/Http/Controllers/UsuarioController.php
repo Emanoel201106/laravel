@@ -7,6 +7,9 @@ use App\Models\Produto;
 
 class UsuarioController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
         $produto = Produto::all();
 
