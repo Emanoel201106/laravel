@@ -34,5 +34,26 @@ class LivrariaSeeder extends Seeder
             'price' => '27.90',
             'desconto' => '59.90',
         ]);
+        Produto::create([
+            'name' => 'As Crônicas de Nárnia',
+            'author' => 'C.S. Lewis',
+            'image' => 'livro4.png',
+            'price' => '49.90',
+            'desconto' => '104.90',
+        ]);
+        Produto::create([
+            'name' => 'A Culpa é das Estrelas',
+            'author' => 'John Green',
+            'image' => 'livro5.png',
+            'price' => '45.10',
+            'desconto' => '59.90',
+        ]);
+        Produto::create([
+            'name' => 'Percy Jackson',
+            'author' => 'Rick Riordan',
+            'image' => 'livro6.jpg',
+            'price' => '35.76',
+            'desconto' => '59.90',
+        ]);
     }
 }

@@ -2,12 +2,15 @@
 
 @section('title', "Carrinho")
 @section('content')
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="crud" href="{{route('index')}}">Carrinho</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
-                <li class=""><a class="menu-link" id="sair" href="{{route('login.store')}}">Sair</a></li>
+                <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
+                    <img class="logout" src="{{url('assets/img/icones/logout.png')}}"/>
+                    <li class="">Sair</li>
+                </div></a>
             </ul>
         </div>
     </div>
@@ -32,7 +35,7 @@ $total = 0;
         <tr data-id="{{$id}}">
             <td data-th="Produto">
                 <div class="row">
-                    <div class="col-sm-3 hidden-xs"><img src="{{asset('assets/img')}}/{{$details['image']}}" width="100" height="140" alt=""></div>
+                    <div class="col-sm-3 hidden-xs"><img src="{{asset('assets/img/livros')}}/{{$details['image']}}" width="100" height="140" alt=""></div>
                     <div class="col-sm-9">
                         <h4 class="normagin">{{$details['name']}}</h4>
                     </div>
@@ -66,9 +69,9 @@ $total = 0;
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start">Copyright &copy; Livraria 2024</div>
             <div class="col-lg-4 my-3 my-lg-0">
-            <a id="logo" class="btn btn-dark btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
-            <a id="logo" class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>
-            <a id="logo" class="btn btn-dark btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo" src="{{url('assets/img/logo3.png')}}"/></a>
+            <a id="logo" class="btn btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
+            <a id="logo" class="btn btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>
+            <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logo3.png')}}"/></a>
             </div>
             <div class="col-lg-4 text-lg-end">
                 <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
@@ -83,7 +86,8 @@ $total = 0;
 
 @section('scripts')
 <script type="text/javascript">
-    $(".cart_update").change(function(e){
+   $(document).ready(function() {
+    $(".cart_update").change(function(e) {
         e.preventDefault();
 
         var ele = $(this);
@@ -96,13 +100,13 @@ $total = 0;
                 id: ele.parents("tr").attr("data-id"),
                 quantidade: ele.parents("tr").find(".quantity").val()
             },
-            success: function(response){
+            success: function(response) {
                 window.location.reload();
             }
         });
     });
 
-    $(".cart_remove").click(function (e) {
+    $(".cart_remove").click(function(e) {
         e.preventDefault();
 
         var ele = $(this);
@@ -115,12 +119,13 @@ $total = 0;
                     _token: '{{ csrf_token() }}',
                     id: ele.parents("tr").attr("data-id")
                 },
-                success: function (response) {
+                success: function(response) {
                     window.location.reload();
                 }
             });
         }
     });
+});
 </script>
 @endsection
 
