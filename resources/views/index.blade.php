@@ -8,11 +8,11 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <a class="menu-link" id="cadastrar" href="{{url('cadastro')}}"><div class="cabeçalho">
-                            <img class="" src="{{url('assets/img/icones/add.png')}}"/>
+                            <img class="" src="{{url('assets/img/icones/add.png')}}" width="50px" height="45px"/>
                             <li class="">Criar usuário</li>
                         </div></a>
                         <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                            <img class="logout" id="d-sair" src="{{url('assets/img/icones/logout.png')}}"/>
+                            <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
                             <li class="">Sair</li>
                         </div></a>
                     </ul>
@@ -70,9 +70,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a id="logo" class="btn btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logo1.png')}}"/></a>
-                        <a id="logo" class="btn btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logo2.png')}}"/></a>
-                        <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logo3.png')}}"/></a>
+                        <a id="logo" class="btn btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logos/logo1.png')}}"/></a>
+                        <a id="logo" class="btn btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logos/logo2.png')}}"/></a>
+                        <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
                         <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
