@@ -65,7 +65,7 @@
 
         <div class="filtro">
             <h1 class="livraria-titles">Filtro</h1>
-            <form class="filter" action="/usuario" method="GET">
+            <form class="filter" action="{{ route('usuario') }}" method="GET">
                 <div class="d-filter">
                     <h3 class="filtro-titulo">Preço</h3>
                     <div class="d-filtro">
@@ -88,20 +88,23 @@
                         <input class="min-max" type="number" placeholder="2024" name="maximo" value="{{ request('maximo') }}">
                     </div>
                 </div>
-                <div class="d-filter">
+                <div class="d-filter" id="avaliacao">
                     <h3 class="filtro-titulo">Classificação</h3>
                     <div>
-                        @php
-                            $checked = [];
-                            if(isset($_GET['stars'])){
-                                $checked = $_GET['stars'];
-                            }
-                        @endphp
                         @foreach ($stars as $star)
-                        <input type="checkbox" name="stars[]" value="{{$star->stars}}" @if(in_array($star->stars, $checked)) checked @endif><img class="estrela" src="{{ asset('assets/img/estrelas/' . $star->stars) }}" alt=""><br>
+                        @php
+                            $checked = request('stars', []);
+                            if(isset($_GET['stars']))
+                        @endphp
+                            <input type="checkbox" name="stars[]" value="{{ $star->stars }}" id="star_{{ $star->id }}" @if(in_array($star->stars, $checked)) checked @endif>
+                            <label for="star_{{ $star->id }}">
+                                <img class="estrela" src="{{ asset('assets/img/estrelas/' . $star->stars) }}" alt="Estrela de classificação" checked>
+                            </label>
                         @endforeach
+
                     </div>
                 </div>
+
                 <br><button class="apply" type="submit">Aplicar</button>
             </form>
         </div>

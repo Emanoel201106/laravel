@@ -551,4 +551,8 @@ a:hover.veja{
 }
 .d-filter{
     display: inline-block;
+    vertical-align: top;
+}
+#avaliacao{
+    margin-left: 20px;
 }

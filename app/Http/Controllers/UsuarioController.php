@@ -17,10 +17,6 @@ class UsuarioController extends Controller
 
         $query = Produto::query();
 
-        $categoria = categoria::all();
-
-        $stars = stars::all();
-
         if ($search) {
             $query->where('name', 'like', '%' . $search . '%')
               ->orWhere('categoria', 'like', '%' . $search . '%')
@@ -36,7 +32,6 @@ class UsuarioController extends Controller
         if(isset($request->max) && $request->max != null){
             $query->where('price', '<=', $request->max);
         }
-        $produto = $query->get();
 
         if(isset($request->minimo) && $request->minimo != null){
             $query->where('ano', '>=', $request->minimo);
@@ -45,9 +40,15 @@ class UsuarioController extends Controller
         if(isset($request->maximo) && $request->maximo != null){
             $query->where('ano', '<=', $request->maximo);
         }
+
+        if ($request->has('stars')) {
+            $stars = $request->input('stars');
+            $query->whereIn('estrelas', $stars);
+        }
+
         $produto = $query->get();
 
-        return view('usuario', ['produto' => $produto, 'search'=> $search, 'categoria' => $categoria, 'stars' => $stars]);
+        return view('usuario', ['produto' => $produto, 'search' => $search, 'categoria' => Categoria::all(), 'stars' => stars::all()]);
     }
 
     public function carrinho(){

@@ -9,5 +9,7 @@ class stars extends Model
 {
     use HasFactory;
 
+    protected $table = 'stars';
+
     protected $fillable = ['stars'];
 }
