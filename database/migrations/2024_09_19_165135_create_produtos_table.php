@@ -15,9 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('author');
+            $table->string('avaliação');
+            $table->string('estrelas');
             $table->string('image');
             $table->decimal('price', 6, 2);
             $table->decimal('desconto', 6, 2);
+            $table->string('categoria');
+            $table->integer('ano');
             $table->timestamps();
         });
     }

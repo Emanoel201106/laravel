@@ -4,16 +4,50 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\categoria;
+use App\Models\stars;
 
 class UsuarioController extends Controller
 {
     function __construct(){
         $this->middleware('auth');
     }
-    public function index(){
-        $produto = Produto::all();
+    public function index(Request $request){
+        $search = request('search');
 
-        return view('usuario', compact('produto'));
+        $query = Produto::query();
+
+        $categoria = categoria::all();
+
+        $stars = stars::all();
+
+        if ($search) {
+            $query->where('name', 'like', '%' . $search . '%')
+              ->orWhere('categoria', 'like', '%' . $search . '%')
+              ->orWhere('author', 'like', '%' . $search . '%');
+        }else{
+            $produto = Produto::all();
+        }
+
+        if(isset($request->min) && $request->min != null){
+            $query->where('price', '>=', $request->min);
+        }
+
+        if(isset($request->max) && $request->max != null){
+            $query->where('price', '<=', $request->max);
+        }
+        $produto = $query->get();
+
+        if(isset($request->minimo) && $request->minimo != null){
+            $query->where('ano', '>=', $request->minimo);
+        }
+
+        if(isset($request->maximo) && $request->maximo != null){
+            $query->where('ano', '<=', $request->maximo);
+        }
+        $produto = $query->get();
+
+        return view('usuario', ['produto' => $produto, 'search'=> $search, 'categoria' => $categoria, 'stars' => $stars]);
     }
 
     public function carrinho(){

@@ -34,8 +34,8 @@
     <input class="criar" type="email" name="email" placeholder="Email" required><br><br>
     <h5 class="cad-title">Livro</h3>
     <input class="criar" type="text" name="livro" placeholder="Livro" required><br><br>
-    <h5 class="cad-title">Gênero</h3>
-    <input class="criar" type="text" name="genero" placeholder="Gênero" required><br><br>
+    <h5 class="cad-title">Categoria</h3>
+    <input class="criar" type="text" name="categoria" placeholder="Categoria" required><br><br>
     <h5 class="cad-title">Senha</h3>
     <input class="criar" type="password" name="password" placeholder="Senha" required> <br><br>
     <label class="checkbox" for="customCheck">
@@ -59,8 +59,8 @@
                         <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                        <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                        <a class="termo" id="policy" href="">Política de Privacidade</a>
+                        <a class="termo" href="">Termos de Uso</a>
                     </div>
                 </div>
             </div>

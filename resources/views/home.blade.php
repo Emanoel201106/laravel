@@ -27,8 +27,8 @@
                         <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                        <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                        <a class="termo" id="policy" href="">Política de Privacidade</a>
+                        <a class="termo" href="">Termos de Uso</a>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@ class UsersSeeder extends Seeder
             'admin' => '1',
             'user' => '0',
             'livro' => 'Harry Potter',
-            'genero' => 'Fantasia'
+            'categoria' => 'Fantasia'
         ]);
         User::create([
             'name' => 'Pedro',
@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
             'admin' => '0',
             'user' => '1',
             'livro' => 'It: a Coisa',
-            'genero' => 'Terror'
+            'categoria' => 'Terror'
         ]);
     }
 }

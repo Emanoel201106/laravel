@@ -30,7 +30,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Livro</th>
-                    <th scope="col">Gênero</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Administrador</th>
                     <th scope="col">Usuário</th>
                     <th scope="col">Ações</th>
@@ -39,20 +39,20 @@
             <tbody>
                 @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->livro }}</td>
-                    <td>{{ $user->genero }}</td>
-                    <td>{{ $user->admin }}</td>
-                    <td>{{ $user->user }}</td>
+                    <td class="item">{{ $user->id }}</td>
+                    <td class="item">{{ $user->name }}</td>
+                    <td class="item">{{ $user->email }}</td>
+                    <td class="item">{{ $user->livro }}</td>
+                    <td class="item">{{ $user->categoria }}</td>
+                    <td class="item">{{ $user->admin }}</td>
+                    <td class="item">{{ $user->user }}</td>
                     <td>
 
                         <a href="{{ url("crud/{$user->id}/edit") }}">
-                            <button class="btn btn-primary">Editar</button>
+                            <button class="editar">Editar</button>
                         </a>
                         <a href="#" class="js-del" data-id="{{ $user->id }}">
-                            <button class="btn btn-danger">Deletar</button>
+                            <button class="deletar">Deletar</button>
                         </a>
                         <form id="delete-form-{{ $user->id }}" action="{{ route('crud.destroy', ['user' => $user->id]) }}" method="POST" style="display:none;">
                             @csrf
@@ -75,8 +75,8 @@
                         <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                        <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                        <a class="termo" id="policy" href="">Política de Privacidade</a>
+                        <a class="termo" href="">Termos de Uso</a>
                     </div>
                 </div>
             </div>

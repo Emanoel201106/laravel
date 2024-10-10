@@ -42,7 +42,7 @@ class UserController extends Controller
             $user->name = $request->name,
             $user->email = $request->email,
             $user->livro = $request->livro,
-            $user->genero = $request->genero,
+            $user->categoria = $request->categoria,
             $user->password = bcrypt($request->password),
             'admin' => $request->has('admin'),
             'user' => $request->has('user'),
@@ -82,7 +82,7 @@ class UserController extends Controller
             'admin' => $request->has('admin'),
             'user' => $request->has('user'),
             'livro' => $request->livro,
-            'genero' => $requestgenerogo,
+            'categoria' => $request->categoria,
         ]);
         return redirect('/book');
     }

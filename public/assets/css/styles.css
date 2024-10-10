@@ -63,6 +63,11 @@ a{
     font-size: 20px;
     margin-top: 100px;
 }
+.titulo{
+    text-align: center;
+    margin-top: 35px;
+    font-family: "Alegreya SC", serif;
+}
 .titulo_2{
     text-align: center;
 }
@@ -86,7 +91,7 @@ a:hover.crud{
 .menu-link{
     color: black;
     margin-left: 10px;
-    font-family: "Inter", regular;
+    font-family: "Alata", sans-serif;
     font-size: 20px;
 }
 a:hover#sair{
@@ -109,6 +114,7 @@ a:hover#cadastrar{
     background: #C4A374;
     text-align: center;
     padding: 10px;
+    font-family: "Alata", sans-serif;
 }
 #f-book{
     position: relative;
@@ -124,6 +130,7 @@ a:hover#cadastrar{
 #logo{
     border-radius: 50px;
     background-color: white;
+    padding-top: 2px;
 }
 a:hover#logo{
     background-color: #eeebeb;
@@ -146,6 +153,8 @@ a:hover#logo{
     display: inline-block;
     vertical-align: top;
     margin: 10px;
+    font-family: "Alata", sans-serif;
+
 }
 .user-name{
     text-align: center;
@@ -159,6 +168,8 @@ a:hover.user-name{
 .title{
     text-align: center;
     margin-top: 260px;
+    font-family: "Alegreya SC", serif;
+
 }
 .l-title{
     text-align: left;
@@ -177,20 +188,23 @@ a:hover.user-name{
     margin-right: 150px;
 }
 .livraria-titles{
-    margin-left: 20px;
+    margin: 30px 20px 10px ;
     font-family: "Alegreya SC", serif;
-    margin-top: 30px;
-    margin-bottom: 10px;
 }
 #promo{
     margin-top: 20px;
 }
-.d-categoria, .d-categoria-2{
+.d-categoria{
     display: inline-block;
 }
+
 .categoria{
     background-color: #E7B6B9;
-    border-radius: 50px;
+    border-radius: 80px;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    margin-left: 70px;
 }
 img:hover.categoria{
     background-color: #BACE9A;
@@ -316,10 +330,9 @@ div:hover.box-livros{
     border-radius: 20px;
     width: 150px;
     margin: 0 auto;
-
+    font-family: "Alata", sans-serif;
 }
 a:hover.add{
-
     color: black;
 }
 .sucesso{
@@ -337,7 +350,7 @@ a:hover.add{
     text-align: center;
     font-size: 20px;
     margin: 0 auto;
-    margin-bottom: 395px;
+    margin-bottom: 397px;
     margin-top: 100px;
 }
 
@@ -400,9 +413,16 @@ a:hover#carrinho{
     margin-right: 132px;
     font-family: "Inter", regular;
 }
-a:hover.forget{
+a:hover.forget, a:hover.termo{
     color: #7B604F;
 
+}
+.termo{
+    text-decoration: none;
+    color: black;
+}
+#policy{
+    margin-right: 10px;
 }
 .enter{
     background-color: #BACE9A;
@@ -410,6 +430,10 @@ a:hover.forget{
     height: 35px;
     border: 0px;
     border-radius: 20px;
+    font-family: "Alata", sans-serif;
+}
+button:hover.enter, div:hover.add{
+    background-color: #acdd93;
 }
 .font{
     font-family: "Alegreya SC", serif;
@@ -428,4 +452,103 @@ th, .mensagem, .edit{
 .choice{
     font-family: "Inter", regular;
 }
+.item{
+    font-family: "Inter", regular;
+}
+.editar, .deletar, .edita{
+    background-color: #4169e1;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 8px;
+    color: white;
+}
+button:hover.editar, input:hover.edita{
+    background-color: #1c2b67;
+}
+.deletar{
+    background-color: #cc1100;
+}
+button:hover.deletar{
+    background-color: #b22222;
+}
+.edita{
+    font-size: 19px;
+}
+.continue, .fechar{
+    border-radius: 20px;
+}
+a:hover.continue, button:hover.fechar{
+    background-color: #D9D9D9;
+}
+.nao-encontrado{
+    margin-bottom: 558px;
+    margin-left: 20px;
+    font-family: "Alata", sans-serif;
+}
+.encontrado{
+    margin-bottom: 10px;
+    margin-right: 15px;
+    text-align: right;
+    font-family: "Alata", sans-serif;
+}
+.veja{
+    color: #4169e1;
+}
+a:hover.veja{
+    color: #1c2b67;
+}
+.filtro{
+    border-radius: 20px;
+    margin: 0px;
+}
+.form-label{
+    margin-left: 30px;
+}
+.apply{
+    border: none;
+    background-color: #E7B6B9;
+    padding: 3px 10px 5px 10px;
+    border-radius: 20px;
+    font-size: 19px;
+    font-family: "Alata", sans-serif;
+    margin: 5px 0px 0px 30px;
 
+}
+.filter{
+    background-color: white;
+    border-radius: 25px;
+    margin: 0px 25px 0px 25px;
+    padding: 15px;
+}
+.filtro-titulo{
+    font-family: "Alegreya SC", serif;
+
+}
+.min-max{
+    border-radius: 10px;
+    border: none;
+    padding: 3px;
+    background-color: #D9D9D9;
+    font-family: "Alata", sans-serif;
+}
+#min{
+    margin-left: 4px;
+}
+.minmax{
+    font-family: "Inter", regular;
+    font-weight: bold;
+}
+.estrela{
+    height: 25px;
+    width: 130px;
+    margin: 0px 0px 2px 3px;
+}
+#ano{
+    margin-left: 20px;
+}
+.d-filtro{
+    margin: 0px 0px 5px 4px;
+}
+.d-filter{
+    display: inline-block;
+}

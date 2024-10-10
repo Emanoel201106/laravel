@@ -47,7 +47,7 @@ $total = 0;
             </td>
             <td data-th="Subtotal" class="font-price">R$ {{$details['price'] * $details['quantidade']}}</td>
             <td>
-                <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Deletar</button>
+                <button class="deletar cart_remove"><i class="fa fa-trash-o"></i> Deletar</button>
             </td>
         </tr>
         @endforeach
@@ -55,14 +55,15 @@ $total = 0;
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
+            <td colspan="5" class="font-price text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
         </tr>
         <td colspan="5" class="text-right">
-            <a href="{{url('/usuario')}}" class="btn btn-dander"><i class="fa fa-arrow-left"></i> Continue comprando</a>
-            <button class="btn btn-sucess"><i class="fa fa-money"> Fechar compra</i></button>
+            <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-arrow-left"></i> Continue comprando</a>
+            <button class="fechar btn btn-sucess"><i class="fechar fa fa-money"> Fechar compra</i></button>
         </td>
     </tfoot>
 </table>
+
 
 <footer class="footer" id="f-book">
     <div class="container">
@@ -74,8 +75,8 @@ $total = 0;
             <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                <a class="termo" id="policy" href="">Política de Privacidade</a>
+                <a class="termo" href="">Termos de Uso</a>
             </div>
         </div>
     </div>

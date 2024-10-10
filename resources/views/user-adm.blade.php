@@ -18,11 +18,11 @@
 
         <div class="box">
            <div  class="user" id="adm">
-            <a href="{{route('login.store')}}" class="user-name"><img class="usuario" id="admin" src="{{url('assets/img/adm.png')}}"/><h1 class="text-center">Administrador</h1></a>
-        </div>
-        <div class="user">
-            <a href="{{route('login.store')}}" class="user-name"><img class="usuario" src="{{url('assets/img/user.png')}}"/><h1 class="text-center">Usuário</h1></a>
-        </div>
+                <a href="{{route('login.store')}}" class="user-name"><img class="usuario" id="admin" src="{{url('assets/img/adm.png')}}"/><h1 class="text-center">Administrador</h1></a>
+            </div>
+            <div class="user">
+                <a href="{{route('login.store')}}" class="user-name"><img class="usuario" src="{{url('assets/img/user.png')}}"/><h1 class="text-center">Usuário</h1></a>
+            </div>
         </div>
 
         <footer class="footer">
@@ -35,8 +35,8 @@
                     <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                        <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                        <a class="termo" id="policy" href="">Política de Privacidade</a>
+                        <a class="termo" href="">Termos de Uso</a>
                     </div>
                 </div>
             </div>

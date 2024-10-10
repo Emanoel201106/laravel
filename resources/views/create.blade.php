@@ -32,8 +32,8 @@
             <input class="form-control" type="text" name="email" id="email" placeholder="Email" value="{{ $user->email ?? '' }}" required> <br>
             <h4 class="edit">Livro</h4>
             <input class="form-control" type="text" name="livro" id="livro" placeholder="Livro" value="{{ $user->livro ?? '' }}" required> <br>
-            <h4 class="edit">Gênero</h4>
-            <input class="form-control" type="text" name="genero" id="genero" placeholder="Gênero" value="{{ $user->genero ?? '' }}" required> <br>
+            <h4 class="edit">Categoria</h4>
+            <input class="form-control" type="text" name="categoria" id="genero" placeholder="Categoria" value="{{ $user->categoria ?? '' }}" required> <br>
 
             <input type="checkbox" name="admin" id="admin" {{ isset($user) && $user->admin ? 'checked' : '' }}>
             <label class="checkbox-2" for="admin">Administrador</label>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="text-center">
-            <input class="btn btn-primary" type="submit" value="@if(isset($user)) Editar @endif">
+            <input class="edita" type="submit" value="@if(isset($user)) Editar @endif">
             </div>
         </form>
     </div>
@@ -57,8 +57,8 @@
                         <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="">Política de Privacidade</a>
-                        <a class="link-dark text-decoration-none" href="">Termos de Uso</a>
+                        <a class="termo" id="policy" href="">Política de Privacidade</a>
+                        <a class="termo" href="">Termos de Uso</a>
                     </div>
                 </div>
             </div>
