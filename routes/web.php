@@ -10,7 +10,6 @@ use App\Http\Controllers\CadastroController;
 
 
 
-
 Route::get('/', [AdmController::class,'index'])->name('user-adm');
 Route::get('/user-adm', [AdmController::class,'index'])->name('adm.index');
 
@@ -27,8 +26,8 @@ Route::get('/', [CadastroController::class, 'index'])->name('cadastro');
 Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastro.index');
 Route::post('/cadastro', [CadastroController::class, 'create'])->name('cadastro.create');
 
-Route::get('/', [HomeController::class,'index'])->name('index');
-Route::get('/book', [UserController::class,'index'])->name('index')->middleware('admin');
+Route::get('/', [HomeController::class,'index'])->name('home.index');
+Route::get('/book', [UserController::class,'index'])->name('book.index')->middleware('admin');
 Route::get('/crud/create', [UserController::class, 'create'])->name('crud.create');
 Route::post('/crud', [UserController::class, 'store'])->name('crud.store');
 Route::get('/crud/{user}/edit', [UserController::class, 'edit'])->name('crud.edit');
@@ -40,5 +39,5 @@ Route::get('/carrinho', [UsuarioController::class,'carrinho'])->name('carrinho')
 Route::get('/adicionar-ao-carrinho/{id}', [UsuarioController::class,'adicionar'])->name('adicionar-ao-carrinho');
 Route::patch('/atualizar-carrinho', [UsuarioController::class,'atualizar'])->name('atualizar_carrinho');
 Route::delete('/remover-do-carrinho', [UsuarioController::class,'remover'])->name('remover_do_carrinho');
-
+Route::get('/livro/{slug}', [UsuarioController::class, 'details'])->name('livro');
 

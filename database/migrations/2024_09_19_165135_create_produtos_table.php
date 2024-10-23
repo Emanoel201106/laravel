@@ -22,6 +22,12 @@ return new class extends Migration
             $table->decimal('desconto', 6, 2);
             $table->string('categoria');
             $table->integer('ano');
+            $table->string('porcentagem');
+            $table->string('editora');
+            $table->text('descrição');
+            $table->integer('pagina');
+            $table->integer('idade');
+            $table->string('dimensao');
             $table->timestamps();
         });
     }

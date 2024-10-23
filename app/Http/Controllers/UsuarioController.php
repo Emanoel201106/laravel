@@ -14,36 +14,40 @@ class UsuarioController extends Controller
     }
     public function index(Request $request){
         $search = request('search');
-
         $query = Produto::query();
 
         if ($search) {
             $query->where('name', 'like', '%' . $search . '%')
-              ->orWhere('categoria', 'like', '%' . $search . '%')
-              ->orWhere('author', 'like', '%' . $search . '%');
+                  ->orWhere('categoria', 'like', '%' . $search . '%')
+                  ->orWhere('author', 'like', '%' . $search . '%')
+                  ->orWhere('editora', 'like', '%' . $search . '%');
         }else{
             $produto = Produto::all();
         }
 
-        if(isset($request->min) && $request->min != null){
+        if ($request->filled('min')) {
             $query->where('price', '>=', $request->min);
         }
-
-        if(isset($request->max) && $request->max != null){
+        if ($request->filled('max')) {
             $query->where('price', '<=', $request->max);
         }
-
-        if(isset($request->minimo) && $request->minimo != null){
+        if ($request->filled('minimo')) {
             $query->where('ano', '>=', $request->minimo);
         }
-
-        if(isset($request->maximo) && $request->maximo != null){
+        if ($request->filled('maximo')) {
             $query->where('ano', '<=', $request->maximo);
         }
-
+        if ($request->filled('menor')) {
+            $query->where('porcentagem', '>=', $request->menor);
+        }
+        if ($request->filled('maior')) {
+            $query->where('porcentagem', '<=', $request->maior);
+        }
         if ($request->has('stars')) {
-            $stars = $request->input('stars');
-            $query->whereIn('estrelas', $stars);
+            $query->whereIn('estrelas', $request->input('stars'));
+        }
+        if ($request->filled('editora')) {
+            $query->where('editora', $request->input('editora'));
         }
 
         $produto = $query->get();
@@ -93,5 +97,11 @@ class UsuarioController extends Controller
             session()->flash('success','Produto removido com sucesso!');
         }
     }
+    public function details($slug){
+        $produto = Produto::where('slug', $slug)->firstOrFail();
+
+        return view('livro', compact('produto'));
+    }
+
 }
 

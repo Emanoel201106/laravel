@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-.email_senha, .criar{
+.email_senha, .criar, .infor{
     border-radius: 40px;
     padding: 6px 10px;
     background-color: #D9D9D9;
     border: 0px;
     font-family: "Inter", regular;
     width: 370px;
-  }
+}
+.email_senha:focus-visible{
+    outline: none;
+}
 .criar{
     width: 300px;
 }
@@ -26,6 +29,7 @@ a:hover{
     padding: 10px;
     padding-bottom: 20px;
     margin-top: 120px;
+    margin-bottom: 184px;
 }
 .box-2{
     margin: 0 auto;
@@ -34,17 +38,16 @@ a:hover{
     background-color: white;
     padding: 5px;
     padding-bottom: 10px;
-    margin-top: 60px;
-    margin-bottom: 30px;
+    margin-top: 80px;
+    margin-bottom: 66px;
 }
 .box-3{
-    margin: 0 auto;
 	width: 650px;
     border-radius: 30px;
     background-color: white;
     padding: 5px;
     padding-bottom: 20px;
-    margin-top: 40px;
+    margin: 40px auto 20px auto;
 }
 body{
     background-color: #F1C583;
@@ -52,16 +55,17 @@ body{
 a{
     color: #5f9bf7;
 }
-.form-control{
-    border-radius: 20px;
-    background-color: #D9D9D9;
-    border: 0px;
-    font-family: "Inter", regular;
+.infor{
+    width: 400px;
+    margin-bottom: 8px;
+}
+.infor:focus-visible{
+    outline: none;
 }
 .table{
     text-align: center;
     font-size: 20px;
-    margin-top: 100px;
+    margin: 100px 0px 297px 0px;
 }
 .titulo{
     text-align: center;
@@ -105,6 +109,9 @@ a:hover#home{
 }
 a:hover#cadastrar{
     color: #3d665e;
+}
+a:hover#favorito{
+    color: #E7B6B9;
 }
 .footer{
     position: absolute;
@@ -169,7 +176,7 @@ a:hover.user-name{
     text-align: center;
     margin-top: 260px;
     font-family: "Alegreya SC", serif;
-
+    margin-bottom: 328px;
 }
 .l-title{
     text-align: left;
@@ -331,6 +338,8 @@ div:hover.box-livros{
     width: 150px;
     margin: 0 auto;
     font-family: "Alata", sans-serif;
+    border: 0px;
+    align-items: center;
 }
 a:hover.add{
     color: black;
@@ -350,8 +359,7 @@ a:hover.add{
     text-align: center;
     font-size: 20px;
     margin: 0 auto;
-    margin-bottom: 397px;
-    margin-top: 100px;
+    margin-bottom: 212px;
 }
 
 a:hover#carrinho{
@@ -360,18 +368,40 @@ a:hover#carrinho{
 .cadastro{
     text-align: center;
 }
+.cadastro input:focus-visible{
+    outline: none;
+}
 .navbar{
     background: white;
 }
 .pesquisa{
+    background-color: #D9D9D9;
+    display: flex;
     border-radius: 20px;
+    width: 500px;
+    height: 43px;
+}
+.pesquisa input{
     border: 0px;
+    border-radius: 20px;
     width: 500px;
     height: 43px;
     padding-left: 10px;
-    background-color: #D9D9D9;
+    background-color: transparent;
     font-size: 18px;
     font-family: "Inter", regular;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.pesquisa input:focus-visible{
+    outline: none;
+}
+.lupa{
+    border: none;
+    border-radius: 70px;
+    padding: 8px;
+    background-color: transparent;
 }
 .cabeçalho{
     display: inline-block;
@@ -445,14 +475,24 @@ button:hover.enter, div:hover.add{
 th, .mensagem, .edit{
     font-family: "Alata", sans-serif;
 }
-.titles{
+.box-login{
+    margin: 0 auto;
+	width: 650px;
+    border-radius: 30px;
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 120px;
+    margin-bottom: 199px;
+}
+.box-login h2{
     text-align: center;
     font-family: "Alata", sans-serif;
 }
 .choice{
     font-family: "Inter", regular;
 }
-.item{
+.tabela td{
     font-family: "Inter", regular;
 }
 .editar, .deletar, .edita{
@@ -497,10 +537,7 @@ a:hover.continue, button:hover.fechar{
 a:hover.veja{
     color: #1c2b67;
 }
-.filtro{
-    border-radius: 20px;
-    margin: 0px;
-}
+
 .form-label{
     margin-left: 30px;
 }
@@ -511,18 +548,20 @@ a:hover.veja{
     border-radius: 20px;
     font-size: 19px;
     font-family: "Alata", sans-serif;
-    margin: 5px 0px 0px 30px;
-
+    margin: 5px 0px 0px 1280px;
+}
+button:hover.apply{
+    background-color: #ffb5c0;
 }
 .filter{
     background-color: white;
     border-radius: 25px;
-    margin: 0px 25px 0px 25px;
+    margin: 0px 50px 0px 50px;
     padding: 15px;
 }
-.filtro-titulo{
+.filtro h3{
     font-family: "Alegreya SC", serif;
-
+    font-size: 30px;
 }
 .min-max{
     border-radius: 10px;
@@ -539,20 +578,150 @@ a:hover.veja{
     font-weight: bold;
 }
 .estrela{
-    height: 25px;
-    width: 130px;
-    margin: 0px 0px 2px 3px;
+    height: 20px;
+    width: 120px;
+    margin: 0px 0px 1px 3px;
 }
-#ano{
-    margin-left: 20px;
+.filtro div{
+    margin: 0px 5px 5px 7px;
 }
-.d-filtro{
-    margin: 0px 0px 5px 4px;
+.filtro input{
+    padding-left: 5px;
+}
+.filtro input:focus-visible{
+    outline: none;
 }
 .d-filter{
     display: inline-block;
     vertical-align: top;
 }
-#avaliacao{
+#car-quantity{
+    font-family: "Alata", sans-serif;
+}
+.editora{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    font-family: "Alata", sans-serif;
+}
+.custom-checkbox input{
+    display: none;
+}
+.custom-checkbox input + label:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+    display: inline-block;
+    vertical-align: middle;
+}
+.custom-checkbox input:checked + label:before{
+    background-image: url("../img/checked.png");
+    background-size: 15px;
+    background-position: center;
+    padding: 3px;
+    background-repeat: no-repeat;
+}
+ button:focus-visible{
+    outline: none;
+}
+.qtd{
+    margin: 70px 0px 10px 90px;
+    font-family: "Alegreya SC", serif;
+}
+.vazio{
+    margin: 180px auto 252px auto;
+    font-family: "Alegreya SC", serif;
+    text-align: center;
+}
+.all{
+    font-size: 20px;
+    background-color: #BACE9A;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+}
+a:hover.all{
+    background-color: #acdd93;
+    color: black;
+}
+.vazio h3{
+    font-weight: normal;
+}
+.livros{
+    display: flex;
+    margin: 70px 0px 150px 10px;
+}
+
+.descricao{
     margin-left: 20px;
+    background-color: white;
+    padding-left: 5px;
+    border-radius: 25px;
+    width: 4000px;
+}
+.descricao p{
+    font-family: "Inter", regular;
+}
+.descricao img, p{
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+.descricao hr{
+    padding-left: 0px;
+    margin: 15px 0px 15px 0px;
+}
+.detalhe{
+    display: inline-block;
+    text-align: center;
+    border-radius: 10px;
+    width: 123px;
+    height: 130px;
+    margin: 0px 20px 10px 2px;
+    vertical-align: top;
+    padding: 4px 2px 0px 2px;
+    font-family: "Alata", sans-serif;
+}
+.detalhe h6{
+    font-weight: bold;
+}
+.detalhe p{
+    font-family: "Inter", regular;
+}
+.descricao h2{
+    font-family: "Alegreya SC", serif;
+}
+.compra{
+    background-color: white;
+    width: 1400px;
+    border-radius: 30px;
+    margin: 0px 10px 0px 20px;
+    padding: 10px;
+}
+.desconto{
+    color: red;
+    font-weight: normal;
+}
+.price{
+    text-align: center;
+}
+.garantia{
+    font-family: "Alata", sans-serif;
+}
+.garantia h6{
+    display: inline-block;
+}
+.garantia img{
+    display: inline-block;
+}
+.garantia p{
+    font-family: "Inter", regular;
+    font-size: 15px;
+    font-weight: 300;
+}
+.compra hr{
+    margin-top: 15px;
+    margin-bottom: 5px;
 }

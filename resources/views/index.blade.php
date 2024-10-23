@@ -21,7 +21,7 @@
         </nav><br><br><br>
     <h1 class="titulo">Crud de Usuário</h1>
     <hr>
-    <div class="col-8 m-auto">
+    <div class="tabela col-8 m-auto">
         @csrf
         <table class="table">
             <thead>
@@ -39,13 +39,13 @@
             <tbody>
                 @foreach($users as $user)
                 <tr>
-                    <td class="item">{{ $user->id }}</td>
-                    <td class="item">{{ $user->name }}</td>
-                    <td class="item">{{ $user->email }}</td>
-                    <td class="item">{{ $user->livro }}</td>
-                    <td class="item">{{ $user->categoria }}</td>
-                    <td class="item">{{ $user->admin }}</td>
-                    <td class="item">{{ $user->user }}</td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->livro }}</td>
+                    <td>{{ $user->categoria }}</td>
+                    <td>{{ $user->admin }}</td>
+                    <td>{{ $user->user }}</td>
                     <td>
 
                         <a href="{{ url("crud/{$user->id}/edit") }}">
@@ -65,23 +65,6 @@
             </tbody>
         </table>
     </div>
-    <footer class="footer">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; CRUD 2024</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a id="logo" class="btn btn-social mx-2" href="https://web.whatsapp.com/" aria-label="Whatsapp"><img class="logo" src="{{url('assets/img/logos/logo1.png')}}"/></a>
-                        <a id="logo" class="btn btn-social mx-2" href="https://www.instagram.com/" aria-label="Instagram"><img class="logo" src="{{url('assets/img/logos/logo2.png')}}"/></a>
-                        <a id="logo" class="btn btn-social mx-2" href="https://github.com/" aria-label="GitHub"><img class="logo3" src="{{url('assets/img/logos/logo3.png')}}"/></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="termo" id="policy" href="">Política de Privacidade</a>
-                        <a class="termo" href="">Termos de Uso</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
     <script>
         document.querySelectorAll('.js-del').forEach(function(element) {
             element.addEventListener('click', function(event) {
