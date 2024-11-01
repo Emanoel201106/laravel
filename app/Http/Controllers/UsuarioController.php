@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\categoria;
 use App\Models\stars;
+use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
+
 
 class UsuarioController extends Controller
 {
@@ -94,14 +97,70 @@ class UsuarioController extends Controller
                 unset($carrinho[$request->id]);
                 session()->put('carrinho', $carrinho);
             }
-            session()->flash('success','Produto removido com sucesso!');
+            session()->flash('success','Produto removido do carrinho com sucesso!');
         }
     }
+
+    public function limpar(Request $request){
+        $request->session()->forget('carrinho');
+        return redirect()->route('carrinho');
+    }
+
     public function details($slug){
         $produto = Produto::where('slug', $slug)->firstOrFail();
 
         return view('livro', compact('produto'));
     }
 
+    public function lista(){
+        return view('lista');
+    }
+
+    public function updatelista(Request $request){
+        if($request->ajax()){
+            $data = $request->all();
+            $countWishlist = Wishlist::countWishlist($data['product_id']);
+
+            $wishlist = new Wishlist;
+            if($countWishlist == 0){
+                $wishlist->product_id = $data['product_id'];
+                $wishlist->user_id = $data['user_id'];
+                $wishlist->save();
+
+                $produto = Produto::findOrFail($data['product_id']);
+                $lista = session()->get('lista', []);
+
+                $lista[$data['product_id']] = [
+                    "id" => $produto->id,
+                    "name" => $produto->name,
+                    "image" => $produto->image,
+                    "price" => $produto->price,
+                    "author" => $produto->author,
+                    "estrelas" => $produto->estrelas,
+                    "avaliação" => $produto->avaliação,
+                    "desconto" => $produto->desconto,
+                    "slug" => $produto->slug,
+                    "quantidade" => 1
+                ];
+                session()->put('lista', $lista);
+
+                return response()->json(['action' => 'add', 'message' => 'Produto adicionado à lista de desejos!']);
+            } else {
+                Wishlist::where(['user_id' => Auth::user()->id, 'product_id' => $data['product_id']])->delete();
+                $lista = session()->get('lista');
+
+                if(isset($lista[$data['product_id']])) {
+                    unset($lista[$data['product_id']]);
+                    session()->put('lista', $lista);
+                }
+
+                return response()->json(['action' => 'remove', 'message' => 'Produto removido da lista de desejos!']);
+            }
+        }
+    }
+
+    public function checkout(){
+        return view('checkout');
+    }
 }
 

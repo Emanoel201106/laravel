@@ -8,7 +8,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <a class="menu-link" id="login" href="{{url('/user-adm')}}"><div>
+                        <a class="menu-link" id="login" href="{{url('/login')}}"><div>
                             <img class="login" src="{{url('assets/img/icones/login.svg')}}" width="45px" height="45"/>
                             <li class="nav-item mx-0 mx-lg-1">Entrar</li>
                         </div></a>
@@ -16,5 +16,5 @@
                 </div>
             </div>
         </nav><br><br><br>
-        <h1 class="title">Bem-vindo à página inicial!</h1><br>
+        <h1 class="title">Bem-vindo(a) à página inicial de nossa livraria!</h1>
 @endsection

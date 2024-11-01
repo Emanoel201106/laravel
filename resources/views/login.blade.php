@@ -11,10 +11,7 @@
                     <img class="home" src="{{url('assets/img/icones/home.png')}}" height="45px"/>
                     <li class="nav-item mx-0 mx-lg-1">Início</li>
                 </div></a>
-                <a class="menu-link" id="login" href="{{url('/user-adm')}}"><div>
-                    <img class="a-user" src="{{url('assets/img/icones/login.svg')}}" width="45px" height="45"/>
-                    <li class="nav-item mx-0 mx-lg-1">Alterar usuário</li>
-                </div></a>
+
             </ul>
         </div>
     </div>

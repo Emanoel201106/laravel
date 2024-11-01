@@ -5,14 +5,20 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="crud" href="{{route('book.index')}}">Carrinho</a>
-        <div class="collapse navbar-collapse">
+        <div>
             <ul class="navbar-nav ms-auto">
-                <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                    <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                    <li class="">Sair</li>
-                </div></a>
-            </ul>
-        </div>
+               <div>
+                    <a class="menu-link" id="favorito" href="{{route('lista')}}"><div class="cabeçalho">
+                        <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px"/>
+                        <li class="">Favoritos <span>({{count((array) session('lista'))}})</span></li>
+                    </div></a>
+                    <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
+                       <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
+                       <li class="">Sair</li>
+                    </div></a>
+               </div>
+           </ul>
+       </div>
     </div>
 </nav><br><br><br>
 @php
@@ -58,7 +64,7 @@ $total = 0;
             </td>
             <td data-th="Subtotal" class="font-price">R$ {{$details['price'] * $details['quantidade']}}</td>
             <td>
-                <button class="deletar cart_remove"><i class="fa fa-trash-o"></i> Deletar</button>
+                <button class="deletar cart_remove"><i class="fa fa-remove"></i> Deletar</button>
             </td>
         </tr>
         @endforeach
@@ -69,15 +75,16 @@ $total = 0;
             <td colspan="5" class="font-price text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
         </tr>
         <td colspan="5" class="text-right">
-            <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-arrow-left"></i> Continue comprando</a>
-            <button class="fechar btn btn-sucess"><i class="fechar fa fa-money"> Fechar compra</i></button>
+            <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-reply"></i> Continue comprando</a>
+            <a href="" class="continue btn btn-dander" id="limpar-carrinho"><i class="fa fa-trash-o"></i> Limpar carrinho</a>
+            <button class="fechar btn btn-sucess"><i class="fa fa-money"></i> Fechar compra</button>
         </td>
     </tfoot>
 </table>
 
 @else
 <h1 class="qtd">Seu carrinho possui {{count((array) session('carrinho'))}} produtos!</h1>
-<table class="table table-hover" id="t-carrinho">
+<table class="table table-hover" id="t-carrinho2">
     <thead>
         <tr>
             <th style="width: 50%">Produto</th>
@@ -106,7 +113,7 @@ $total = 0;
             </td>
             <td data-th="Subtotal" class="font-price">R$ {{$details['price'] * $details['quantidade']}}</td>
             <td>
-                <button class="deletar cart_remove"><i class="fa fa-trash-o"></i> Deletar</button>
+                <button class="deletar cart_remove"><i class="fa fa-remove"></i> Deletar</button>
             </td>
         </tr>
         @endforeach
@@ -117,12 +124,17 @@ $total = 0;
             <td colspan="5" class="font-price text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
         </tr>
         <td colspan="5" class="text-right">
-            <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-arrow-left"></i> Continue comprando</a>
-            <button class="fechar btn btn-sucess"><i class="fechar fa fa-money"> Fechar compra</i></button>
+            <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-reply"></i> Continue comprando</a>
+            <a href="" class="continue btn btn-dander" id="limpar-carrinho"><i class="fa fa-trash-o"></i> Limpar carrinho</a>
+            <a href="{{url('/checkout')}}"><button class="fechar btn btn-sucess"><i class="fa fa-money"> Fechar compra</i></button></a>
         </td>
     </tfoot>
 </table>
 @endif
+<form id="limpar" action="{{route('limpar_carrinho')}}" method="post">
+    @csrf
+    @method("delete")
+</form>
 @endsection
 
 @section('scripts')
@@ -152,7 +164,6 @@ $total = 0;
 
         var ele = $(this);
 
-        if (confirm("Tem certeza que quer remover esse item do carrinho?")) {
             $.ajax({
                 url: '{{ route('remover_do_carrinho') }}',
                 method: "DELETE",
@@ -164,7 +175,11 @@ $total = 0;
                     window.location.reload();
                 }
             });
-        }
+    });
+
+    $("#limpar-carrinho").click(function(e) {
+        e.preventDefault();
+            $("#limpar").submit();
     });
 });
 </script>

@@ -20,9 +20,9 @@
                                 <img class="" src="{{url('assets/img/icones/carrinho.svg')}}" width="57px" height="45px"/>
                                 <li class="car">Carrinho <span>({{count((array) session('carrinho'))}})</span></li>
                             </div></a>
-                            <a class="menu-link" id="favorito" href="{{route('login.store')}}"><div class="cabeçalho">
-                                <img class="logout" src="" width="45px" height="42px"/>
-                                <li class="">Favoritos</li>
+                            <a class="menu-link" id="favorito" href="{{route('lista')}}"><div class="cabeçalho">
+                                <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px"/>
+                                <li class="">Lista de desejos <span>({{count((array) session('lista'))}})</span></li>
                             </div></a>
                             <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
                                 <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
@@ -131,6 +131,21 @@
         <a href="{{ route('livro', $item->slug) }}">
             <div class="box-livros">
                 <img class="livro" src="{{ asset('assets/img/livros/' . $item->image) }}" width="200" height="300"/>
+                <div class="coração">
+                    @php $countWishlist = 0 @endphp
+                    @if (Auth::check())
+                        @php
+                            $countWishlist =
+                            App\Models\Wishlist::countWishlist($item['id'])
+                        @endphp
+                    @endif
+                <a href="" class="coração update_wishlist" data-productid="{{ $item->id }}">
+                    @if ($countWishlist > 0) <i class="coração fa fa-heart fa-3x"></i>
+                    @else
+                    <i class="coração fa fa-heart-o fa-3x"></i>
+                    @endif
+                </a>
+                </div>
                 <p class="livro-p">{{ Str::limit($item->name, 30) }}</p>
                 <p class="livro-p1">{{$item->author}}</p>
                 <img class="stars" src="{{asset('assets/img/estrelas/' . $item->estrelas)}}"/>
@@ -151,4 +166,50 @@
         @if (count($produto) > 0 && $search)
             <br><h6 class="encontrado" ><a class="veja" href="/usuario">Veja todas as opções disponíveis</a></h6>
         @endif
+@endsection
+
+@section('scripts')
+
+<script>
+    var my_id = "{{ Auth::id() }}";
+    $(document).ready(function(){
+        $('.update_wishlist').click(function(){
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var product_id = $(this).data('productid');
+            $.ajax({
+                type: 'POST',
+                url: '/atualizar-lista',
+                data: {
+                    product_id: product_id,
+                    user_id: my_id
+                },
+                success: function(response){
+                    if(response.action == 'add') {
+                        $('a[data-productid="' + product_id + '"]').html('<i class="coração fa fa-heart fa-3x"></i>');                        $('#notifDiv').fadeIn();
+                        $('#notifDiv').css('background', 'green');
+                        $('#notifDiv').text(response.message);
+                        setTimeout(() => {
+                            $('#notifDiv').fadeOut();
+                        }, 3000);
+
+                    } else if(response.action == 'remove') {
+                        $('a[data-productid="' + product_id + '"]').html('<i class="coração fa fa-heart-o fa-3x"></i>');                        $('#notifDiv').fadeIn();
+                        $('#notifDiv').css('background', 'red');
+                        $('#notifDiv').text(response.message);
+                        setTimeout(() => {
+                            $('#notifDiv').fadeOut();
+                        }, 3000);
+
+                    }
+                },
+            });
+        });
+    });
+</script>
+
 @endsection

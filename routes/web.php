@@ -22,11 +22,9 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('/register', 'create')->name('login.register');
 });
 
-Route::get('/', [CadastroController::class, 'index'])->name('cadastro');
-Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastro.index');
+Route::get('/cadastro', [CadastroController::class, 'index'])->name('cadastro');
 Route::post('/cadastro', [CadastroController::class, 'create'])->name('cadastro.create');
 
-Route::get('/', [HomeController::class,'index'])->name('home.index');
 Route::get('/book', [UserController::class,'index'])->name('book.index')->middleware('admin');
 Route::get('/crud/create', [UserController::class, 'create'])->name('crud.create');
 Route::post('/crud', [UserController::class, 'store'])->name('crud.store');
@@ -39,5 +37,10 @@ Route::get('/carrinho', [UsuarioController::class,'carrinho'])->name('carrinho')
 Route::get('/adicionar-ao-carrinho/{id}', [UsuarioController::class,'adicionar'])->name('adicionar-ao-carrinho');
 Route::patch('/atualizar-carrinho', [UsuarioController::class,'atualizar'])->name('atualizar_carrinho');
 Route::delete('/remover-do-carrinho', [UsuarioController::class,'remover'])->name('remover_do_carrinho');
+Route::delete('/limpar-carrinho', [UsuarioController::class,'limpar'])->name('limpar_carrinho');
 Route::get('/livro/{slug}', [UsuarioController::class, 'details'])->name('livro');
 
+Route::get('/lista-desejo', [UsuarioController::class,'lista'])->name('lista');
+Route::post('/atualizar-lista', [UsuarioController::class, 'updatelista'])->name('atualizar-lista');
+
+Route::get('/checkout', [UsuarioController::class,'checkout'])->name('checkout');
