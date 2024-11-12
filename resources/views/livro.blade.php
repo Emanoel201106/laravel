@@ -1,10 +1,10 @@
 @extends('templates.template')
 
-@section('title', "Livraria")
+@section('title', "$produto->name")
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href="">Livraria</a>
+        <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
         <div>
             <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                 <div class="pesquisa">
@@ -13,7 +13,7 @@
                 </div>
             </form>
         </div>
-        <div>
+        <div class="icones">
              <ul class="navbar-nav ms-auto">
                 <div>
                     <a class="menu-link" id="carrinho" href="{{route('carrinho')}}"><div class="cabeçalho" id="cabeçalho">
@@ -22,11 +22,11 @@
                     </div></a>
                     <a class="menu-link" id="favorito" href="{{route('lista')}}"><div class="cabeçalho">
                         <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px"/>
-                        <li class="">Lista de desejos <span>({{count((array) session('lista'))}})</span></li>
+                        <li class="car">Lista de desejos <span>({{count((array) session('lista'))}})</span></li>
                     </div></a>
                     <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
                         <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                        <li class="">Sair</li>
+                        <li class="car">Sair</li>
                     </div></a>
                 </div>
             </ul>
@@ -57,7 +57,7 @@
             </div>
             <div class="descricao">
                 <h2>{{ $produto->name }}</h2>
-                <p>por <a href="/usuario?search={{ $produto->author }}">{{ $produto->author }}</a> (Autor), <a href="/usuario?search={{ $produto->editora }}">{{ $produto->editora }}</a> (Editora)</p>
+                <p>por <a class="a" href="/usuario?search={{ $produto->author }}">{{ $produto->author }}</a> (Autor)</p>
                 <img src="{{asset('assets/img/estrelas/' . $produto->estrelas)}}" class="stars">
                 <p class="avaliacoes">{{$produto->avaliação}}</p>
                 <hr>
@@ -99,10 +99,22 @@
                     <h6>Ano de publicação</h6>
                     <p>{{ $produto->ano }}</p>
                 </div>
+                    @php
+                    $categoryIcon = [
+                        'Romance' => 'romance.png',
+                        'Terror' => 'terror.png',
+                        'Fantasia' => 'fantasia.png',
+                        'Aventura' => 'aventura.png',
+                        'Infantil' => 'infantil.png',
+                        'HQ' => 'hq.png',
+                        'Drama' => 'drama.png',
+                        'Nacional' => 'nacional.png',
+                    ];
+                    @endphp
                 <div class="detalhe">
-                    <img src="{{url('assets/img/icones/idioma.png')}}" width="45px" height="45px">
-                    <h6>Idioma</h6>
-                    <p>Português</p>
+                    <img src="{{url('assets/img/categoria/' . ($categoryIcon[$produto->categoria] ?? 'default.png'))}}" width="59px" height="50px">
+                    <h6>Categoria</h6>
+                    <p>{{ $produto->categoria }}</p>
                 </div>
                 <div class="detalhe">
                     <img src="{{url('assets/img/icones/dimension.png')}}" width="40px" height="40px">
@@ -117,20 +129,19 @@
                     <p class="preço-p" style="margin-bottom: 0px">R$ {{$produto->desconto}}</p>
                 </div>
                 <hr>
-                <div>
+                <div class="options">
                     <h5>Em estoque</h5>
-                </div>
                 <a class="add-l" href="{{ route('adicionar-ao-carrinho', $produto->id) }}">
                     <div class="add-l">
                         <p>Adicionar ao carrinho</p>
                     </div>
                 </a>
-
                 <a class="comprar" href="">
                     <div class="comprar">
                         <p>Comprar agora</p>
                     </div>
                 </a>
+                </div>
                 <hr>
                 <div class="garantia">
                     <img src="{{url('assets/img/icones/devolver.png')}}" width="28px" height="29px" style="margin: 0px 4px 0px 4px">
@@ -138,9 +149,13 @@
                     <img src="{{url('assets/img/icones/entrega.png')}}" width="40px" height="40px" style="margin-bottom: 10px;">
                     <h6>Entrega rápida e garantida</h6>
                     <p>Receba o produto que está esperando ou devolvemos o dinheiro.</p>
+                    <img src="{{url('assets/img/icones/frete.svg')}}" width="30px" height="30px" style="margin-bottom: 6px;">
+                    <h6>Frete grátis no primeiro pedido</h6>
                 </div>
             </div>
         </div>
+
+
 
 @endsection
 

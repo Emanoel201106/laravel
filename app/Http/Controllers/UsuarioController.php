@@ -74,6 +74,7 @@ class UsuarioController extends Controller
                 "name" => $produto->name,
                 "image" => $produto->image,
                 "price" => $produto->price,
+                "slug" => $produto->slug,
                 "quantidade" => 1
             ];
         }
@@ -157,6 +158,35 @@ class UsuarioController extends Controller
                 return response()->json(['action' => 'remove', 'message' => 'Produto removido da lista de desejos!']);
             }
         }
+    }
+
+    public function moverlista($id){
+        $produto = Produto::findOrFail($id);
+
+        $carrinho = session()->get('carrinho', []);
+
+        if (isset($carrinho[$id])) {
+            $carrinho[$id]['quantidade']++;
+        }else {
+            $carrinho[$id] = [
+                "name" => $produto->name,
+                "image" => $produto->image,
+                "price" => $produto->price,
+                "slug" => $produto->slug,
+                "quantidade" => 1
+            ];
+        }
+
+        session()->put('carrinho', $carrinho);
+
+        $lista = session()->get('lista', []);
+
+        if(isset($lista[$id])){
+            unset($lista[$id]);
+            session()->put('lista', $lista);
+        }
+
+        return redirect()->route('lista');
     }
 
     public function checkout(){

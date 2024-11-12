@@ -42,5 +42,7 @@ Route::get('/livro/{slug}', [UsuarioController::class, 'details'])->name('livro'
 
 Route::get('/lista-desejo', [UsuarioController::class,'lista'])->name('lista');
 Route::post('/atualizar-lista', [UsuarioController::class, 'updatelista'])->name('atualizar-lista');
+Route::get('/mover-lista{id}', [UsuarioController::class, 'moverlista'])->name('mover-lista');
+
 
 Route::get('/checkout', [UsuarioController::class,'checkout'])->name('checkout');

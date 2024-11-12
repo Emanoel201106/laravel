@@ -4,19 +4,19 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="crud" href="{{route('book.index')}}">CRUD de Usuário</a>
+                <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                            <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                            <li class="">Sair</li>
+                            <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="40px" height="42px"/>
+                            <li class="car">Sair</li>
                         </div></a>
                     </ul>
                 </div>
             </div>
         </nav><br><br><br>
     <div class="box-2">
-    <h1 class="titles">@if(isset($user)) Editar @endif</h1> <hr>
+    <h1 class="text-center">@if(isset($user)) Editar @endif</h1> <hr>
     <div class="col-8 m-auto">
         @if(isset($user))
             <form id="formEdit" method="post" action="{{ url("crud/{$user->id}") }}">

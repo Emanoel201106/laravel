@@ -4,16 +4,16 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="crud" href="">CRUD de Usuário</a>
+                <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <a class="menu-link" id="cadastrar" href="{{url('cadastro')}}"><div class="cabeçalho">
                             <img class="" src="{{url('assets/img/icones/add.png')}}" width="50px" height="45px"/>
-                            <li class="">Criar usuário</li>
+                            <li class="car">Criar usuário</li>
                         </div></a>
                         <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                            <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                            <li class="">Sair</li>
+                            <img class="c-logout" src="{{url('assets/img/icones/logout.png')}}" width="40px" height="42px"/>
+                            <li class="car">Sair</li>
                         </div></a>
                     </ul>
                 </div>
@@ -21,7 +21,7 @@
         </nav><br><br><br>
     <h1 class="titulo">Crud de Usuário</h1>
     <hr>
-    <div class="tabela col-8 m-auto">
+    <div class="tabel col-8 m-auto">
         @csrf
         <table class="table">
             <thead>

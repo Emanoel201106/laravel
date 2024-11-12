@@ -1,10 +1,10 @@
 @extends('templates.template')
 
-@section('title', "Livraria")
+@section('title', "Entrelinhas Livraria")
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="crud" href="">Livraria</a>
+                <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
                 <div>
                     <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                         <div class="pesquisa">
@@ -21,18 +21,19 @@
                                 <li class="car">Carrinho <span>({{count((array) session('carrinho'))}})</span></li>
                             </div></a>
                             <a class="menu-link" id="favorito" href="{{route('lista')}}"><div class="cabeçalho">
-                                <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px"/>
-                                <li class="">Lista de desejos <span>({{count((array) session('lista'))}})</span></li>
+                                <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px" height="50px"/>
+                                <li class="car">Lista de desejos <span>({{count((array) session('lista'))}})</span></li>
                             </div></a>
                             <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                                <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                                <li class="">Sair</li>
+                                <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="40px" height="42px"/>
+                                <li class="car">Sair</li>
                             </div></a>
                         </div>
                     </ul>
                 </div>
             </div>
         </nav><br><br><br>
+        <h1 class="espaço">A</h1>
         @if ($search)
         <h1 id="promo" class="livraria-titles">Buscando por: {{$search}}</h1>
         @else
@@ -41,7 +42,6 @@
             {{session('sucess')}}
             </div>
         @endif
-
         <h1 class="livraria-titles">Categorias</h1>
         <div>
             @foreach ($categoria as $category)
@@ -60,22 +60,22 @@
                     <h3>Preço</h3>
                     <div>
                         <label class="minmax" for="min">Mínimo:</label>
-                        <input class="min-max" id="min" type="number" placeholder="R$ 0.00" name="min" value="{{ request('min') }}" min="0">
+                        <input class="min-max" id="min" type="number" placeholder="R$ 0.00" name="min" value="{{ request('min') }}" min="0" step="10">
                     </div>
                     <div>
                         <label class="minmax" for="min">Máximo:</label>
-                        <input class="min-max" type="number" placeholder="R$ 200.00" name="max" value="{{ request('max') }}" max="200">
+                        <input class="min-max" type="number" placeholder="R$ 200.00" name="max" value="{{ request('max') }}" max="200" step="10">
                     </div>
                 </div>
                 <div class="d-filter">
                     <h3>Ano de publicação</h3>
                     <div>
                         <label class="minmax" for="minimo">Mínimo:</label>
-                        <input class="min-max" id="min" type="number" placeholder="1900" name="minimo" value="{{ request('minimo') }}" min="1900">
+                        <input class="min-max" id="min" type="number" placeholder="1900" name="minimo" value="{{ request('minimo') }}" min="1900" max="2024">
                     </div>
                     <div>
                         <label class="minmax" for="minimo">Máximo:</label>
-                        <input class="min-max" type="number" placeholder="2024" name="maximo" value="{{ request('maximo') }}" max="2024">
+                        <input class="min-max" type="number" placeholder="2024" name="maximo" value="{{ request('maximo') }}" min="1990" max="2024">
                     </div>
                 </div>
                 <div class="d-filter">

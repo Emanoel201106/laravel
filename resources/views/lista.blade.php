@@ -4,7 +4,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href="">Lista de desejos</a>
+        <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
         <div>
             <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                 <div class="pesquisa">
@@ -13,7 +13,7 @@
                 </div>
             </form>
         </div>
-        <div>
+        <div class="icones">
              <ul class="navbar-nav ms-auto">
                 <div>
                     <a class="menu-link" id="carrinho" href="{{route('carrinho')}}"><div class="cabeçalho" id="cabeçalho">
@@ -21,8 +21,8 @@
                         <li class="car">Carrinho <span>({{count((array) session('carrinho'))}})</span></li>
                     </div></a>
                     <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                        <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                        <li class="">Sair</li>
+                        <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="40px" height="42px"/>
+                        <li class="car">Sair</li>
                     </div></a>
                 </div>
             </ul>
@@ -41,6 +41,7 @@
 @elseif (count((array) session('lista')) == 1)
 <h1 class="qtd-lista">Sua lista de desejos possui {{count((array) session('lista'))}} produto!</h1>
 @foreach (session('lista') as $lid => $favorito)
+<a href="{{ route('livro', $favorito['slug']) }}">
     <div class="box-livros">
         <img class="livro" src="{{ asset('assets/img/livros/' . $favorito['image']) }}" width="200" height="300"/>
         <div class="coração">
@@ -65,10 +66,12 @@
         <h3 class="preço">R$ {{$favorito['price']}}</h3>
         <p class="preço-p">R$ {{$favorito['desconto']}}</p>
         <div class="add">
-            <a class="add" href="{{ route('adicionar-ao-carrinho', $favorito['id'])}}">
-                <p>Adicionar ao carrinho</p>
+            <a class="add" href="{{ route('mover-lista', $favorito['id'])}}">
+                <p>Mover para o carrinho</p>
             </a>
         </div>
+    </div>
+</a>
 @endforeach
 @else
 <h1 class="qtd-lista">Sua lista de desejos possui {{count((array) session('lista'))}} produtos!</h1>
@@ -98,8 +101,8 @@
         <h3 class="preço">R$ {{$favorito['price']}}</h3>
         <p class="preço-p">R$ {{$favorito['desconto']}}</p>
         <div class="add">
-            <a class="add" href="{{ route('adicionar-ao-carrinho', $favorito['id'])}}">
-                <p>Adicionar ao carrinho</p>
+            <a class="add" href="{{ route('mover-lista', $favorito['id'])}}">
+                <p>Mover para o carrinho</p>
             </a>
         </div>
     </div>

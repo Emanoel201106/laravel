@@ -4,17 +4,25 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href="{{route('book.index')}}">Carrinho</a>
+        <a class="crud" href="{{route('book.index')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+        <div>
+            <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
+                <div class="pesquisa">
+                <input type="search" name="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                <button class="lupa"><img src="{{url('assets/img/lupa.png')}}" width="28px" height="28px"></button>
+                </div>
+            </form>
+        </div>
         <div>
             <ul class="navbar-nav ms-auto">
-               <div>
+               <div class="icones">
                     <a class="menu-link" id="favorito" href="{{route('lista')}}"><div class="cabeçalho">
                         <img class="favorito" src="{{url('assets/img/icones/favorito.svg')}}" width="45px"/>
-                        <li class="">Favoritos <span>({{count((array) session('lista'))}})</span></li>
+                        <li class="car">Favoritos <span>({{count((array) session('lista'))}})</span></li>
                     </div></a>
                     <a class="menu-link" id="sair" href="{{route('login.store')}}"><div class="cabeçalho">
-                       <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="45px" height="42px"/>
-                       <li class="">Sair</li>
+                       <img class="logout" src="{{url('assets/img/icones/logout.png')}}" width="40px" height="42px"/>
+                       <li class="car">Sair</li>
                     </div></a>
                </div>
            </ul>
@@ -32,12 +40,13 @@ $total = 0;
     <h3>Que tal explorar nossos produtos em destaque?</h3>
     <a href="{{url('/usuario')}}" class="all">Todos os produtos</a>
 </div>
-
 @elseif (count((array) session('carrinho')) == 1)
 <h1 class="qtd">Seu carrinho possui {{count((array) session('carrinho'))}} produto!</h1>
-<table class="table table-hover" id="t-carrinho">
+
+<div class="tabela-d"  id="t-carrinho">
+<table class="tabela table-hover">
     <thead>
-        <tr>
+        <tr style="border-bottom: 2px solid #dcdcdc">
             <th style="width: 50%">Produto</th>
             <th style="width: 10%">Preço</th>
             <th style="width: 8%">Quantidade</th>
@@ -51,10 +60,17 @@ $total = 0;
         @php $total += $details['price'] * $details['quantidade'] @endphp
         <tr data-id="{{$id}}">
             <td data-th="Produto">
-                <div class="row">
-                    <div class="col-sm-3 hidden-xs"><img src="{{asset('assets/img/livros')}}/{{$details['image']}}" width="100" height="140" alt=""></div>
+                <div class="book-table row">
+                    <div class="col-sm-3 hidden-xs">
+                        <a href="{{ route('livro', $details['slug']) }}">
+                            <img src="{{asset('assets/img/livros')}}/{{$details['image']}}" width="100" height="140" alt="">
+                        </a>
+                    </div>
+
                     <div class="col-sm-9">
-                        <h4 class="font">{{$details['name']}}</h4>
+                        <a href="{{ route('livro', $details['slug']) }}">
+                            <h4 class="font">{{ Str::limit($details['name'], 25) }}</h4>
+                        </a>
                     </div>
                 </div>
             </td>
@@ -74,19 +90,21 @@ $total = 0;
         <tr>
             <td colspan="5" class="font-price text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
         </tr>
-        <td colspan="5" class="text-right">
+        <td colspan="5" class="text-right" style="border: none">
             <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-reply"></i> Continue comprando</a>
             <a href="" class="continue btn btn-dander" id="limpar-carrinho"><i class="fa fa-trash-o"></i> Limpar carrinho</a>
             <button class="fechar btn btn-sucess"><i class="fa fa-money"></i> Fechar compra</button>
         </td>
     </tfoot>
 </table>
+</div>
 
 @else
 <h1 class="qtd">Seu carrinho possui {{count((array) session('carrinho'))}} produtos!</h1>
-<table class="table table-hover" id="t-carrinho2">
+<div class="tabela-d" id="t-carrinho2">
+<table class="tabela table-hover">
     <thead>
-        <tr>
+        <tr style="border-bottom: 2px solid #dcdcdc">
             <th style="width: 50%">Produto</th>
             <th style="width: 10%">Preço</th>
             <th style="width: 8%">Quantidade</th>
@@ -100,10 +118,17 @@ $total = 0;
         @php $total += $details['price'] * $details['quantidade'] @endphp
         <tr data-id="{{$id}}">
             <td data-th="Produto">
-                <div class="row">
-                    <div class="col-sm-3 hidden-xs"><img src="{{asset('assets/img/livros')}}/{{$details['image']}}" width="100" height="140" alt=""></div>
+                <div class="book-table row">
+                    <div class="col-sm-3 hidden-xs">
+                        <a href="{{ route('livro', $details['slug']) }}">
+                            <img src="{{asset('assets/img/livros')}}/{{$details['image']}}" width="100" height="140" alt="">
+                        </a>
+                    </div>
+
                     <div class="col-sm-9">
-                        <h4 class="font">{{$details['name']}}</h4>
+                        <a href="{{ route('livro', $details['slug']) }}">
+                            <h4 class="font">{{ Str::limit($details['name'], 25) }}</h4>
+                        </a>
                     </div>
                 </div>
             </td>
@@ -121,15 +146,15 @@ $total = 0;
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="font-price text-right"><h3><strong>Total R$ {{$total}}</strong></h3></td>
+            <td colspan="5" class="font-price text-right"><h3><strong>Total: R$ {{$total}}</strong></h3></td>
         </tr>
-        <td colspan="5" class="text-right">
+        <td colspan="5" class="text-right" style="border-bottom: transparent">
             <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-reply"></i> Continue comprando</a>
             <a href="" class="continue btn btn-dander" id="limpar-carrinho"><i class="fa fa-trash-o"></i> Limpar carrinho</a>
             <a href="{{url('/checkout')}}"><button class="fechar btn btn-sucess"><i class="fa fa-money"> Fechar compra</i></button></a>
         </td>
     </tfoot>
-</table>
+</table></div>
 @endif
 <form id="limpar" action="{{route('limpar_carrinho')}}" method="post">
     @csrf

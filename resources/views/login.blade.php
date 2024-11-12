@@ -4,12 +4,12 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href="">CRUD de Usuário</a>
-        <div>
+        <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+        <div class="icones">
              <ul class="navbar-nav ms-auto">
                 <a class="menu-link" id="home" href="/"><div>
                     <img class="home" src="{{url('assets/img/icones/home.png')}}" height="45px"/>
-                    <li class="nav-item mx-0 mx-lg-1">Início</li>
+                    <li class="car nav-item mx-0 mx-lg-1">Início</li>
                 </div></a>
 
             </ul>

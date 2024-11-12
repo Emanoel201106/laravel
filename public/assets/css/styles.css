@@ -39,8 +39,8 @@ a:hover{
     background-color: white;
     padding: 5px;
     padding-bottom: 10px;
-    margin-top: 80px;
-    margin-bottom: 66px;
+    margin-top: 84px;
+    margin-bottom: 62px;
 }
 .box-3{
 	width: 650px;
@@ -48,7 +48,7 @@ a:hover{
     background-color: white;
     padding: 5px;
     padding-bottom: 20px;
-    margin: 40px auto 20px auto;
+    margin: 59px auto 16px auto;
 }
 body{
     background-color: #F1C583;
@@ -66,11 +66,34 @@ a{
 .table{
     text-align: center;
     font-size: 20px;
-    margin: 100px 0px 297px 0px;
+    margin: 100px 0px 278px 0px;
+    border: 2px dashed #dcdcdc;
+    padding: 30px;
+}
+.tabela{
+    background-color: white;
+    border-radius: 25px;
+}
+.tabela-d{
+    border-radius: 25px;
+    border: 2px dashed #dcdcdc;
+
+}
+table:hover.table, div:hover.tabela-d{
+    border: 2px dashed #C4A374;
+}
+
+.tabela th{
+    padding: 5px;
+}
+.tabela td{
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #dcdcdc;
 }
 .titulo{
     text-align: center;
-    margin-top: 35px;
+    margin-top: 52px;
     font-family: "Alegreya SC", serif;
 }
 .titulo_2{
@@ -117,7 +140,6 @@ a:hover#favorito{
 .favorito{
     padding-top: 10px;
     margin-right: 3px;
-    height: 50px;
 }
 .footer{
     position: absolute;
@@ -171,7 +193,7 @@ a:hover#logo{
     margin-right: 150px;
 }
 .livraria-titles{
-    margin: 30px 20px 10px ;
+    margin: 2px 20px 10px ;
     font-family: "Alegreya SC", serif;
 }
 #promo{
@@ -328,17 +350,16 @@ a:hover.add{
     width: 94%;
     margin-left: 42px;
     border-radius: 20px;
-    margin-top: 50px;
 }
 #t-carrinho, #t-carrinho2{
     width: 1300px;
     text-align: center;
     font-size: 20px;
     margin: 0 auto;
-    margin-bottom: 212px;
+    margin-bottom: 182px;
 }
 #t-carrinho2{
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 a:hover#carrinho{
     color: #BACE9A;
@@ -396,15 +417,17 @@ a:hover#carrinho{
 }
 .car{
     margin-left: 5px;
+    font-size: 19px;
 }
 .home{
-    margin-left: 4px;
+    margin-left: 1px;
 }
 .login{
-    margin-left: 9px;
+    margin-left: 6px;
 }
 #entrar{
     margin-left: 7px;
+    font-size: 18px;
 }
 #d-sair{
     margin-top: 7px;
@@ -445,10 +468,13 @@ button:hover.enter, div:hover.add{
 }
 .font{
     font-family: "Alegreya SC", serif;
+    font-size: 22px;
 }
 .font-price{
     font-family: "Alata", sans-serif;
     text-align: center;
+    font-size: 20px;
+
 }
 th, .mensagem, .edit{
     font-family: "Alata", sans-serif;
@@ -470,7 +496,7 @@ th, .mensagem, .edit{
 .choice{
     font-family: "Inter", regular;
 }
-.tabela td{
+.tabel td{
     font-family: "Inter", regular;
 }
 .editar, .deletar, .edita{
@@ -485,6 +511,7 @@ button:hover.editar, input:hover.edita{
 }
 .deletar{
     background-color: #cc1100;
+    font-size: 18px;
 }
 button:hover.deletar{
     background-color: #b22222;
@@ -495,6 +522,7 @@ button:hover.deletar{
 .continue, .fechar{
     border-radius: 20px;
     font-family: "Alata", sans-serif;
+    border: 2px solid #d9d9d9;
 }
 a:hover.continue, button:hover.fechar{
     background-color: #D9D9D9;
@@ -548,6 +576,7 @@ button:hover.apply{
     padding: 3px;
     background-color: #D9D9D9;
     font-family: "Alata", sans-serif;
+    width: 230px;
 }
 #min{
     margin-left: 4px;
@@ -603,18 +632,21 @@ button:hover.apply{
     padding: 3px;
     background-repeat: no-repeat;
 }
- button:focus-visible{
+button:focus-visible{
+    outline: none;
+}
+input:focus-visible{
     outline: none;
 }
 .qtd, .qtd-lista{
-    margin: 70px 0px 10px 90px;
+    margin: 90px 0px 10px 90px;
     font-family: "Alegreya SC", serif;
 }
 .qtd-lista{
     margin: 40px 0px 10px 90px;
 }
 .vazio{
-    margin: 180px auto 252px auto;
+    margin: 212px auto 220px auto;
     font-family: "Alegreya SC", serif;
     text-align: center;
 }
@@ -686,7 +718,7 @@ div:hover.detalhe{
     width: 1400px;
     border-radius: 30px;
     margin: 0px 10px 0px 20px;
-    padding: 10px;
+    height: 430px;
 }
 .desconto{
     color: red;
@@ -695,9 +727,17 @@ div:hover.detalhe{
 }
 .price{
     text-align: center;
+    padding: 10px;
+}
+.options{
+    padding: 5px 10px;
+}
+.options h5{
+    color: #BACE9A;
 }
 .garantia{
     font-family: "Alata", sans-serif;
+    padding: 5px 10px;
 }
 .garantia h6{
     display: inline-block;
@@ -716,7 +756,7 @@ div:hover.detalhe{
 }
 .add-l, .comprar{
     color: black;
-    background-color: #BACE9A;
+    background-color: #F1C583;
     text-align: center;
     border-radius: 20px;
     width: 220px;
@@ -729,11 +769,20 @@ div:hover.detalhe{
 .comprar{
     margin-bottom: 0px;
 }
-div:hover.add-l, div:hover.comprar{
+.add-l{
+    background-color: #BACE9A;
+}
+div:hover.add-l{
     background-color: #acdd93;
+}
+div:hover.comprar{
+    background-color: #C4A374;
 }
 .capa{
     padding: 7px;
+    border: 2px solid transparent;
+    height: 380px;
+
 }
 div:hover.capa{
     border: 2px dashed black;
@@ -749,18 +798,60 @@ div:hover.capa{
     background-color: white;
     border-radius: 50px;
     padding: 0px 5px 2px 5px;
-    margin-top: 7px;
+    margin-top: 12px;
 }
 .coração-1{
-    margin-top: 10px;
+    margin-top: 6px;
     color: #E7B6B9;
 }
 .descricao a{
     color: #7B604F;
 }
+a:hover.a{
+    color: #874421;
+}
 .quantity{
     border-radius: 50px;
+    border: 2px solid #dcdcdc;
 }
 .descricao p{
     font-family: "Alata", sans-serif;
+}
+.book-table a{
+    color: black;
+}
+.espaço{
+    font-size: 45px;
+}
+.icones{
+    margin-top: 5px;
+}
+.informacao{
+    display: inline-block;
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
+}
+.informacao label{
+    font-size: 20px;
+    font-family: "Alata", sans-serif;
+
+}
+.informacao input, .informacao select{
+    width: 600px;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 10px;
+}
+.informacao select{
+    padding: 7px 3px;
+}
+.checkout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagar{
+    display: inline-block;
+    vertical-align: top;
 }
