@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
-    function __construct(){
-        $this->middleware('auth');
-    }
     public function index(Request $request){
         $search = request('search');
         $query = Produto::query();
@@ -191,6 +188,29 @@ class UsuarioController extends Controller
 
     public function checkout(){
         return view('checkout');
+    }
+    public function concluir(Request $request){
+        $request->session()->forget('carrinho');
+        return redirect()->route('checkout');
+    }
+    public function comprar($id){
+        $produto = Produto::findOrFail($id);
+
+        $carrinho = session()->get('carrinho', []);
+
+        if(isset($carrinho[$id])){
+            $carrinho[$id]['quantidade']++;
+        }else{
+            $carrinho[$id] = [
+                "name" => $produto->name,
+                "image" => $produto->image,
+                "price" => $produto->price,
+                "slug" => $produto->slug,
+                "quantidade" => 1
+            ];
+        }
+        session()->put('carrinho', $carrinho);
+        return redirect('checkout');
     }
 }
 

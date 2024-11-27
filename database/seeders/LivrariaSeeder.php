@@ -17,7 +17,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'Harry Potter e a Pedra Filosofal',
             'author' => 'J.K. Rowling',
-            'avaliação' => '(3293 avaliações)',
+            'avaliação' => '(3.293 avaliações)',
             'estrelas' => 'stars.png',
             'image' => 'livro1.png',
             'price' => '45.49',
@@ -36,7 +36,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'It: a Coisa',
             'author' => 'Stephen King',
-            'avaliação' => '(1338 avaliações)',
+            'avaliação' => '(11.364 avaliações)',
             'estrelas' => 'stars.png',
             'image' => 'livro2.png',
             'price' => '85.71',
@@ -55,7 +55,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'Os Sete Maridos de Evelyn Hugo',
             'author' => 'Taylor Jenkins Reid',
-            'avaliação' => '(9023 avaliações)',
+            'avaliação' => '(9.023 avaliações)',
             'estrelas' => 'stars.png',
             'image' => 'livro3.jpg',
             'price' => '27.90',
@@ -74,7 +74,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'As Crônicas de Nárnia',
             'author' => 'C.S. Lewis',
-            'avaliação' => '(9543 avaliações)',
+            'avaliação' => '(9.543 avaliações)',
             'estrelas' => '4stars.png',
             'image' => 'livro4.png',
             'price' => '49.90',
@@ -93,7 +93,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'A Culpa é das Estrelas',
             'author' => 'John Green',
-            'avaliação' => '(5108 avaliações)',
+            'avaliação' => '(5.108 avaliações)',
             'estrelas' => '4stars.png',
             'image' => 'livro5.png',
             'price' => '45.10',
@@ -112,7 +112,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'Percy Jackson e o Ladrão de Raios',
             'author' => 'Rick Riordan',
-            'avaliação' => '(8212 avaliações)',
+            'avaliação' => '(8.212 avaliações)',
             'estrelas' => 'stars.png',
             'image' => 'livro6.webp',
             'price' => '35.76',
@@ -131,7 +131,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'O Homem de Giz',
             'author' => 'C.J. Tudor',
-            'avaliação' => '(1946 avaliações)',
+            'avaliação' => '(1.946 avaliações)',
             'estrelas' => '3stars.png',
             'image' => 'livro7.jpg',
             'price' => '39.99',
@@ -150,7 +150,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'Arlindo',
             'author' => 'Ilustralu',
-            'avaliação' => '(2112 avaliações)',
+            'avaliação' => '(2.112 avaliações)',
             'estrelas' => 'stars.png',
             'image' => 'livro8.jpeg',
             'price' => '42.84',
@@ -169,7 +169,7 @@ class LivrariaSeeder extends Seeder
         Produto::create([
             'name' => 'O Pequeno Príncipe',
             'author' => 'Antoine de Saint-Exupéry',
-            'avaliação' => '(7974 avaliações)',
+            'avaliação' => '(7.974 avaliações)',
             'estrelas' => '4stars.png',
             'image' => 'livro9.jpg',
             'price' => '15.22',
@@ -183,6 +183,60 @@ class LivrariaSeeder extends Seeder
             'pagina' => '96',
             'idade' => '8',
             'dimensao' => '23x14x1.01cm',
+        ]);
+        Produto::create([
+            'name' => 'Vidas Secas',
+            'author' => 'Graciliano Ramos',
+            'avaliação' => '(2.814 avaliações)',
+            'estrelas' => 'stars.png',
+            'image' => 'livro10.jpg',
+            'price' => '13.74',
+            'desconto' => '19.90',
+            'categoria' => 'Nacional',
+            'ano' => '1938',
+            'porcentagem' => '31%',
+            'editora' => 'Principis',
+            'slug' => Str::slug('Vidas Secas'),
+            'descrição' => 'A crueldade da seca e a vida miserável fazem com que uma família de retirantes sertanejos seja obrigada a se deslocar de tempos em tempos para áreas menos castigadas do sertão brasileiro nordestino. O estilo seco de Graciliano Ramos parece transmitira aridez do ambiente e seus efeitos sobre as pessoas que ali estão. Pertencente à segunda fase modernista, conhecida como regionalista, esta é qualificada como uma das mais bem-sucedidas criações da época.',
+            'pagina' => '96',
+            'idade' => '16',
+            'dimensao' => '15.5x0.5x22.6cm',
+        ]);
+        Produto::create([
+            'name' => 'Eu e Esse meu Coração',
+            'author' => 'C. C. Hunter',
+            'avaliação' => '(15.350 avaliações)',
+            'estrelas' => '4stars.png',
+            'image' => 'livro11.jpg',
+            'price' => '33.17',
+            'desconto' => '59.90',
+            'categoria' => 'Romance',
+            'ano' => '2018',
+            'porcentagem' => '45%',
+            'editora' => 'Jangada',
+            'slug' => Str::slug('Eu e Esse meu Coração'),
+            'descrição' => 'Leah MacKenzie, de 17 anos, não tem coração. O que a mantém viva é um coração artificial que ela carrega dentro de uma mochila. Com seu tipo sanguíneo raro, um transplante é como um sonho distante. Conformada, ela tenta se esquecer de que está com os dias contados, criando uma lista de “coisas para fazer antes de morrer”. De repente, Leah recebe uma segunda chance: há um coração disponível! O problema é quando ela descobre que o doador é um garoto da sua escola – e que supostamente se matou! Matt, o irmão gêmeo do doador, se recusa a acreditar que Eric se suicidou. Quando Leah o procura, eles descobrem que ambos têm sonhos semelhantes que podem ter pistas do que realmente aconteceu a Eric.',
+            'pagina' => '424',
+            'idade' => '14',
+            'dimensao' => '23x16x2.01cm',
+        ]);
+        Produto::create([
+            'name' => 'Maus',
+            'author' => 'Art Spiegelman',
+            'avaliação' => '(10.808 avaliações)',
+            'estrelas' => 'stars.png',
+            'image' => 'livro12.jpg',
+            'price' => '48.06',
+            'desconto' => '89.90',
+            'categoria' => 'HQ',
+            'ano' => '2005',
+            'porcentagem' => '47%',
+            'editora' => 'Quadrinhos na Cia',
+            'slug' => Str::slug('Maus'),
+            'descrição' => 'Nas tiras, os judeus são desenhados como ratos e os nazistas ganham feições de gatos; poloneses não-judeus são porcos e americanos, cachorros. Esse recurso, aliado à ausência de cor dos quadrinhos, reflete o espírito do livro: trata-se de um relato incisivo e perturbador, que evidencia a brutalidade da catástrofe do Holocausto. Spiegelman, porém, evita o sentimentalismo e interrompe algumas vezes a narrativa para dar espaço a dúvidas e inquietações.',
+            'pagina' => '296',
+            'idade' => '16',
+            'dimensao' => '22.4x15.6x2.6cm',
         ]);
     }
 }

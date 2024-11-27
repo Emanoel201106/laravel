@@ -8,13 +8,6 @@ use App\Http\Controllers\AdmController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CadastroController;
 
-
-
-Route::get('/', [AdmController::class,'index'])->name('user-adm');
-Route::get('/user-adm', [AdmController::class,'index'])->name('adm.index');
-
-
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(LoginController::class)->group(function(){
     Route::get('/login', 'index')->name('login.index');
@@ -33,16 +26,18 @@ Route::put('/crud/{user}', [UserController::class, 'update'])->name('crud.update
 Route::delete('/crud/{user}', [UserController::class, 'destroy'])->name('crud.destroy');
 
 Route::get('/usuario', [UsuarioController::class,'index'])->name('usuario')->middleware('user');
-Route::get('/carrinho', [UsuarioController::class,'carrinho'])->name('carrinho');
+Route::get('/carrinho', [UsuarioController::class,'carrinho'])->name('carrinho')->middleware('user');
 Route::get('/adicionar-ao-carrinho/{id}', [UsuarioController::class,'adicionar'])->name('adicionar-ao-carrinho');
 Route::patch('/atualizar-carrinho', [UsuarioController::class,'atualizar'])->name('atualizar_carrinho');
 Route::delete('/remover-do-carrinho', [UsuarioController::class,'remover'])->name('remover_do_carrinho');
 Route::delete('/limpar-carrinho', [UsuarioController::class,'limpar'])->name('limpar_carrinho');
 Route::get('/livro/{slug}', [UsuarioController::class, 'details'])->name('livro');
 
-Route::get('/lista-desejo', [UsuarioController::class,'lista'])->name('lista');
+Route::get('/lista-desejo', [UsuarioController::class,'lista'])->name('lista')->middleware('user');
 Route::post('/atualizar-lista', [UsuarioController::class, 'updatelista'])->name('atualizar-lista');
 Route::get('/mover-lista{id}', [UsuarioController::class, 'moverlista'])->name('mover-lista');
 
 
 Route::get('/checkout', [UsuarioController::class,'checkout'])->name('checkout');
+Route::delete('compra-concluida', [UsuarioController::class, 'concluir'])->name('compra-concluida');
+Route::get('/comprar-agora/{id}', [UsuarioController::class,'comprar'])->name('comprar-agora');

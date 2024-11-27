@@ -4,7 +4,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+        <a class="crud" href="{{route('usuario')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
         <div>
             <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                 <div class="pesquisa">
@@ -136,7 +136,7 @@
                         <p>Adicionar ao carrinho</p>
                     </div>
                 </a>
-                <a class="comprar" href="">
+                <a class="comprar" href="{{ route('comprar-agora', $produto->id) }}">
                     <div class="comprar">
                         <p>Comprar agora</p>
                     </div>

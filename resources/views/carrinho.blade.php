@@ -4,7 +4,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href="{{route('book.index')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+        <a class="crud" href="{{route('usuario')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
         <div>
             <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                 <div class="pesquisa">
@@ -93,7 +93,7 @@ $total = 0;
         <td colspan="5" class="text-right" style="border: none">
             <a href="{{url('/usuario')}}" class="continue btn btn-dander"><i class="fa fa-reply"></i> Continue comprando</a>
             <a href="" class="continue btn btn-dander" id="limpar-carrinho"><i class="fa fa-trash-o"></i> Limpar carrinho</a>
-            <button class="fechar btn btn-sucess"><i class="fa fa-money"></i> Fechar compra</button>
+            <a href="{{url('/checkout')}}"><button class="fechar btn btn-sucess"><i class="fa fa-money"> Fechar compra</i></button></a>
         </td>
     </tfoot>
 </table>

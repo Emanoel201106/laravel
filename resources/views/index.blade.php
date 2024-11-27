@@ -6,6 +6,9 @@
             <div class="container">
                 <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
                 <div class="collapse navbar-collapse">
+                    <div class="alinhar">
+                        <h2 class="titulo">Crud de Usuário</h1>
+                    </div>
                     <ul class="navbar-nav ms-auto">
                         <a class="menu-link" id="cadastrar" href="{{url('cadastro')}}"><div class="cabeçalho">
                             <img class="" src="{{url('assets/img/icones/add.png')}}" width="50px" height="45px"/>
@@ -19,11 +22,10 @@
                 </div>
             </div>
         </nav><br><br><br>
-    <h1 class="titulo">Crud de Usuário</h1>
     <hr>
     <div class="tabel col-8 m-auto">
         @csrf
-        <table class="table">
+        <table class="tabela-1">
             <thead>
                 <tr>
                     <th scope="col">Id</th>

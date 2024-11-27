@@ -4,7 +4,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+        <a class="crud" href="{{route('usuario')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
         <div>
             <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                 <div class="pesquisa">

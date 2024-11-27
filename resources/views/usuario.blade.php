@@ -4,11 +4,11 @@
 @section('content')
 <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="crud" href=""><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
+                <a class="crud" href="{{route('usuario')}}"><img src="{{url('assets/img/livraria.png')}}" width="110px" height="100px"></a>
                 <div>
                     <form class="form-inline my-2 my-lg-0" action="/usuario" method="GET">
                         <div class="pesquisa">
-                        <input type="search" name="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                        <input type="search" name="search" placeholder="Pesquisar" aria-label="Pesquisar" value="{{ old('search', $search) }}">
                         <button class="lupa"><img src="{{url('assets/img/lupa.png')}}" width="28px" height="28px"></button>
                         </div>
                     </form>
@@ -101,6 +101,10 @@
                             <option value="Intrínseca">Intrínseca</option>
                             <option value="Seguinte">Seguinte</option>
                             <option value="Via Leitura">Via Leitura</option>
+                            <option value="Principis">Principis</option>
+                            <option value="Jangada">Jangada</option>
+                            <option value="Quadrinhos na Cia">Quadrinhos na Cia</option>
+
                         </select>
                     </div>
                 </div>

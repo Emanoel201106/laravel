@@ -16,13 +16,14 @@ class UserAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check() && Auth::user()-> user == 1){
-            return $next($request);
-        }else{
-            if(!Auth::check()){
-                return redirect('/login');
-            }
-            return redirect('usuario');
+        if (!Auth::check()) {
+            return redirect()->route('login.index');
         }
+
+        if (Auth::user()->user != 1) {
+            return redirect()->route('login.index');
+        }
+
+        return $next($request);
     }
 }
